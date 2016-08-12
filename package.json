@@ -1,0 +1,23 @@
+{
+  "name": "botml",
+  "version": "0.0.1",
+  "description": "<abbr title=\"Bot Markup Language\">BotML</abbr> is a powerful markup language for modern chatbots.",
+  "keywords": [ "bot", "chatbot", "aiml", "chatscript", "buddyscript", "rivescript", "siml" ],
+  "author": "Arnaud Leymet <arnaud.leymet@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/botml/botml-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/botml/botml-js/issues"
+  },
+  "directories": {
+    "lib": "lib",
+    "example": "examples"
+  },
+  "main": "lib/botml.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

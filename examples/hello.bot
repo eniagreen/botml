@@ -1,0 +1,15 @@
+! BOTML 1
+
+# A simple yet polite bot.
+#
+# Examples:
+#  - Hi!       or    - Hello Mr. Robot
+#  - Hello           - Hey
+
+= hello
+- hello
+- hi
+- hey
+
+> [hello] *
+< [hello]

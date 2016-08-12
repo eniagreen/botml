@@ -1,0 +1,56 @@
+! BOTML 1
+
+# A bot that has a lot to ask you.
+#
+# Example:
+#  - Hello sir. Please answer this quick survey to help us better know you. Alright?
+#  - Ok
+#  - Great!
+#    How old are you?
+#  - 25
+#  - And where were you born?
+#  - I was born in Bermuda Island
+#  - Gotcha. You're from Bermuda Island.
+#  - What is your email address?
+#  - email@example.org
+#  - Perfect. We'll keep in touch with you over 'email@example.org'.
+
+~ survey
+< [hello] sir. Please answer this quick survey to help us better know you. [ok]?
+> [ok]
+< Great!
+~ [age]
+~ [city of birth]
+~ [email address]
+
+~ age
+< How old are you?
+> #{age}
+> #{age} years old
+
+~ city of birth
+< And where were you born?
+> * in *{city}
+> * near *{city}
+> *{city}
+if $city == 'seoul'
+  < Annyeong haseyo!
+else
+  < Gotcha. You're from $city.
+
+~ email address
+< What is your email address?
+> *{email}
+if $email
+  < Perfect. We'll keep in touch with you over ${email}.
+
+# dictionnaries
+
+= hello
+- hello
+- hi
+- good day
+
+= ok
+- ok
+- alright
