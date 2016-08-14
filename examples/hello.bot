@@ -3,13 +3,20 @@
 # A simple yet polite bot.
 #
 # Examples:
-#  - Hi!       or    - Hello Mr. Robot
-#  - Hello           - Hey
+#  - Hi!                          or    - Hello Mr. Robot
+#  - Hello. What's your name?           - Hey. What's your name?
+#  - Alice                              - Bob
+#  - Nice to meet you Alice!            - Nice to meet you Bob!
 
 = hello
 - hello
 - hi
 - hey
+- good day
+- greetings
+- aloha
 
-> [hello] *
-< [hello]
+> [hello]
+< [hello]. What's your name?
+> *
+< Nice to meet you $!

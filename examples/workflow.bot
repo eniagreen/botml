@@ -19,6 +19,8 @@
 < [hello] sir. Please answer this quick survey to help us better know you. [ok]?
 > [ok]
 < Great!
+> *
+< You said $
 ~ [age]
 ~ [city of birth]
 ~ [email address]
@@ -49,6 +51,7 @@ if $email
 = hello
 - hello
 - hi
+- hey
 - good day
 
 = ok

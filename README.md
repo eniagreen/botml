@@ -9,12 +9,13 @@
 - Set & use lists
 - Set & use services (APIs)
 - Variables
+- RegExp compatible
 - Scripting, post-processing
 - Dialogue management
 
 To do:
 
-- RegExp compatible
+- Named variables
 - Stanford TokensRegex compatible
 - Stanford Semgrex compatible
 
