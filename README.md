@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml)
 [![NPM dependencies](https://david-dm.org/BotML/botml-js/status.svg)](https://david-dm.org/BotML/botml-js)
 
-<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful markup language for modern chatbots.
+<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful markup language for designing modern chatbots.
 
 ## How to use
 
@@ -21,7 +21,7 @@ or use it in your code:
 
 ```js
 var BotML = require('botml');
-var bot = new BotML(['alice.bot']);
+var bot = new BotML('alice.bot');
 bot.start();
 ```
 
