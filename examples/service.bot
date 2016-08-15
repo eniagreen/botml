@@ -1,15 +1,15 @@
 ! BOTML 1
 
 # Rely on a remote API using a named service and last reference.
-# The location is actually learnt in memory and has been processed as a city
-# with all of its meta information via the API call, for further usage.
+# The domain is actually saved in memory and is geolocalized to its city of
+# operation.
 #
 # Example:
-#  - I would like to go to London
-#  - You want to go to London?
+#  - Where is github.com?
+#  - It is running from San Francisco.
 
-@ geoapi http://localhost:3000/search?q=$
+@ geoapi http://freegeoip.net/json/$
 
-> * go to *
+> Where is *(?)
 @ geoapi($)
-< You want to go to $?
+< It is running from $.city.
