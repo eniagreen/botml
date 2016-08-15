@@ -4,12 +4,22 @@
 # The domain is actually saved in memory and is geolocalized to its city of
 # operation.
 #
-# Example:
-#  - Where is github.com?
-#  - It is running from San Francisco.
+# Examples:
+#  > Where is github.com?
+#  < It is running from San Francisco.
+#
+#  > What is my ip?
+#  < It's 93.184.216.34
 
-@ geoapi http://freegeoip.net/json/$
+@ geodomain http://freegeoip.net/json/$
 
 > Where is *(?)
-@ geoapi($)
-< It is running from $.city.
+@ geodomain($).city
+< It is running from $.
+
+
+@ ip http://httpbin.org/ip
+
+> ip
+@ ip($).origin
+< It's $.

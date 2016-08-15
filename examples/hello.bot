@@ -3,10 +3,10 @@
 # A simple yet polite bot.
 #
 # Examples:
-#  - Hi!                          or    - Hello Mr. Robot
-#  - Hello. What's your name?           - Hey. What's your name?
-#  - Alice                              - My name is Bob
-#  - Nice to meet you Alice!            - Nice to meet you Bob!
+#  > Hi!                          or    > Hello Mr. Robot
+#  < Hello. What's your name?           < Hey. What's your name?
+#  > Alice                              > My name is Bob
+#  < Nice to meet you Alice!            < Nice to meet you Bob!
 
 = hello
 - hello
@@ -17,7 +17,7 @@
 - aloha
 
 > [hello]
-< [hello]. What's your name?
+< [hello]. `1000 * 19` What's your name?
 > My name is *
 > *
 < Nice to meet you $!

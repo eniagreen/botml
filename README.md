@@ -1,6 +1,30 @@
-# BotML format
+# BotML
 
-<abbr title="Bot Markup Language">BotML</abbr> is a powerful markup language for modern chatbots.
+[![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml.io)
+[![NPM dependencies](https://david-dm.org/BotML/botml-js/status.svg)](https://david-dm.org/BotML/botml-js)
+
+<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful markup language for modern chatbots.
+
+## How to use
+
+```bash
+$ npm install botml -g
+```
+
+Then either run the cli:
+
+```bash
+$ bot # my-botml-implementation.bot
+```
+
+or use it in your code:
+
+```js
+var BotML = require('botml');
+var bot = new BotML();
+bot.load(['my-botml-implementation.bot']);
+bot.start();
+```
 
 ## Features
 
@@ -21,119 +45,152 @@ To do:
 
 ## Format
 
+### Blocks
+
 **Specification**
 
-    ! BOTML <version>
+```bash
+! BOTML <version>
+```
 
 The current version being `1`.
 
 **Comment**
 
-    # This line is not interpreted
+```bash
+# This line is not interpreted
+```
 
 **Dialogue**
 
-    > <input>
-    < <output>
+```bash
+> <input>
+< <output>
+```
 
 Example:
 
-    > hi
-    < hi there
+```bash
+> hi
+< hi there
+```
 
 **List**
 
-    = <list>
-    - <item>
-    - <item>
+```bash
+= <list>
+- <item>
+- <item>
+```
 
 Example:
 
-    = fruits
-    - apples
-    - apricots
-    - bananas
+```bash
+= fruits
+- apples
+- apricots
+- bananas
 
-    > I like [fruits]
-    < Oh. I prefer [fruits].
+> I like [fruits]
+< Oh. I prefer [fruits].
+```
 
 **Service**
 
 API endpoints can be leveraged as easily as:
 
-    @ <name> <endpoint>
+```bash
+# Definition
+@ <name> <endpoint>
+# Consumption
+@ <name>($).<output>
+```
 
 Example:
 
-    @ geoapi http://localhost:3000/search?q=$
+```bash
+@ geodomain http://freegeoip.net/json/$
 
-    > go to *
-    | location = @geoapi($)
-    < You want to go to $location?
-
-**NLP**
-
-    TODO
+> Where is *
+@ geodomain($).city
+< It is running from $.
+```
 
 **Scripting**
 
 Scripting can be done with Javascript code evaluation.
 
-    > It will cost you #{price} USD
-    < `1000 * $price`k USD is a lot!
+```bash
+> It will cost you #{price} USD
+< `1000 * $price`k USD is a lot!
+```
 
 **Variable**
 
 Variables can be either textual (*) or numeric (#)
 
-    > My name is *{name}
-    < Nice to meet you, $name
+```bash
+> My name is *{name}
+< Nice to meet you, $name
 
-    > I am #{age} years old
-    < Seems that you have `age`
+> I am #{age} years old
+< Seems that you have `age`
+```
 
 **Regular Expression**
 
-    > I like to /move|break|stretch/ it
-    < Cool bro.
+```bash
+> I like to /move|break|stretch/ it
+< Cool bro.
+```
 
 **Dialogue workflow**
 
-    # A grocery shopper must know what and how many to buy
-    ~ grocery shopping
-    < What?
-    > #{count} ${item}
-    > ${item}
-    < How many ${item}?
-    > #{count}
+```bash
+# A grocery shopper must know what and how many to buy
+~ grocery shopping
+< What?
+> #{count} ${item}
+> ${item}
+< How many ${item}?
+> #{count}
+```
 
 Simple question for learning a notion:
 
-    < Where were you born?
-    @ city = geoapi($)
-    > So you are from $city.
+```bash
+< Where were you born?
+@ geoapi($).city
+> So you are from $.
+```
 
 The same question with more checks and conditional branching:
 
-    ~ origin
-    < Where were you born?
-    > in *{city}
-    > near *{city}
-    > *{city}
-    @ city = geoapi($city)
-    if $city == 'Heaven'
-    < Then go to hell!
-    else
-    < Gotcha. You're from $city.
+```bash
+~ origin
+< Where were you born?
+> in *{city}
+> near *{city}
+> *{city}
+@ city = geoapi($city).city
+if $city == 'Heaven'
+  < Then go to hell!
+else
+  < Gotcha. You're from $city.
+```
 
 **Trigger**
 
-    @ trigger('name')
+```bash
+@ trigger('name')
+```
 
 Example:
 
-    > hi
-    @ trigger('said_hi')
+```bash
+> hi
+@ trigger('said_hi')
+```
 
 Then handle the 'said_hi' event in your code according to your needs.
 

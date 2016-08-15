@@ -3,17 +3,17 @@
 # A bot that has a lot to ask you.
 #
 # Example:
-#  - Hello sir. Please answer this quick survey to help us better know you. Alright?
-#  - Ok
-#  - Great!
+#  < Hello sir. Please answer this quick survey to help us better know you. Alright?
+#  > Ok
+#  < Great!
 #    How old are you?
-#  - 25
-#  - And where were you born?
-#  - I was born in Bermuda Island
-#  - Gotcha. You're from Bermuda Island.
-#  - What is your email address?
-#  - email@example.org
-#  - Perfect. We'll keep in touch with you over 'email@example.org'.
+#  > 25
+#  < And where were you born?
+#  > I was born in Bermuda Island
+#  < Gotcha. You're from Bermuda Island.
+#    What is your email address?
+#  > email@example.org
+#  < Perfect. We'll keep in touch with you over 'email@example.org'.
 
 ~ survey
 < [hello] sir. Please answer this quick survey to help us better know you. [ok]?
