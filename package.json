@@ -5,6 +5,7 @@
   "keywords": [ "bot", "chatbot", "aiml", "chatscript", "buddyscript", "rivescript", "siml" ],
   "author": "Arnaud Leymet <arnaud.leymet@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/botml/botml-js",
   "repository": {
     "type": "git",
     "url": "https://github.com/botml/botml-js.git"

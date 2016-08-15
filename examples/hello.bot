@@ -17,7 +17,8 @@
 - aloha
 
 > [hello]
-< [hello]. `1000 * 19` What's your name?
+< [hello]. What's your name?
+@ trigger('said_hi')
 > My name is *
 > *
 < Nice to meet you $!

@@ -1,6 +1,6 @@
 # BotML
 
-[![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml.io)
+[![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml)
 [![NPM dependencies](https://david-dm.org/BotML/botml-js/status.svg)](https://david-dm.org/BotML/botml-js)
 
 <abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful markup language for modern chatbots.
@@ -14,15 +14,14 @@ $ npm install botml -g
 Then either run the cli:
 
 ```bash
-$ bot # my-botml-implementation.bot
+$ bot
 ```
 
 or use it in your code:
 
 ```js
 var BotML = require('botml');
-var bot = new BotML();
-bot.load(['my-botml-implementation.bot']);
+var bot = new BotML(['alice.bot']);
 bot.start();
 ```
 
@@ -188,7 +187,8 @@ else
 Example:
 
 ```bash
-> hi
+> hello
+< hi
 @ trigger('said_hi')
 ```
 
