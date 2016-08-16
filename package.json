@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "BotML is a powerful markup language for modern chatbots.",
   "keywords": [ "bot", "chatbot", "aiml", "chatscript", "buddyscript", "rivescript", "siml" ],
   "author": "Arnaud Leymet <arnaud.leymet@gmail.com>",
