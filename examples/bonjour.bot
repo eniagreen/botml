@@ -1,0 +1,15 @@
+! BOTML 1
+
+# A french-speaking bot.
+
+= bonjour
+- bonjour
+- salut
+
+> [bonjour]
+< [bonjour]. Quel est ton nom ?
+@ trigger('said_hi')
+> Je m'appelle *
+> Mon nom est *
+> *
+< Je suis ravie de te rencontrer $ !

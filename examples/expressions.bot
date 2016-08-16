@@ -1,0 +1,32 @@
+! BOTML 1
+
+# A bot with natural language processing integration from CoreNLP.
+#
+# Example:
+#  > I like to move it            or    > I really need this
+#  < Do you really like it?             > So you need this, huh?
+
+
+# Using a basic expression
+# This conversation doesn't always catch the Verb position correctly.
+
+> I * (*) * (it|this)
+< Do you really $1 $2
+< So you $1 $2, huh?
+
+
+# Using a regular expression
+# This conversation doesn't always catch the Verb position correctly either.
+
+> /^I (?:.+\s)?(\w+) (?:.+\s)?(it|this)/
+< Do you really $1 $2
+< So you $1 $2, huh?
+
+
+# Using the Stanford TokensRegex syntax
+# This one relies on natural language processing capabilities to query the right
+# words and will catch the Verb correctly all the time.
+
+> I [ !{ tag:/VB.*/ } ]* (?$verb [{ tag: /VB.*/ }]) []* (?$what /it|this/)
+< Do you really $1 $2
+< So you $1 $2, huh?

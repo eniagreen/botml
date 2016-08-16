@@ -1,0 +1,32 @@
+! BOTML 1
+
+# A bot with integrated natural language processing,
+# using the Stanford TokensRegex syntax.
+
+# I am a person
+> [{ word:I }] [{ word:am }]
+< I bet you are.
+< This is so you.
+
+# I eat a yummy kimchi
+> [{ word:I }] [{ tag:VBP }]
+< I bet you do.
+
+# I can do this
+> [{ word:I }] [{ word:can }]
+< I bet you can.
+
+# I did my homework
+> [{ word:I }] [{ word:did }]
+> [{ word:I }] [{ tag:VBD }]
+< I bet you did.
+< You did that?!
+
+# I will tell you
+> [{ word:I }] [{ word:will }]
+< I bet you will.
+< Or will you?
+
+> ([{ tag:VB }]) [{ word:you }]
+< Are you trying to $1 me?
+< So you want to $1 me, huh?

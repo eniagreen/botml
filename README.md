@@ -33,14 +33,14 @@ bot.start();
 - Set & use services (APIs)
 - Variables
 - RegExp compatible
-- Scripting, post-processing
+- Stanford TokensRegex compatible
+- Scripting
 - Dialogue management
+- Easily extendable to use <abbr title="Natural Language Processing">NLP</abbr>
 
 To do:
 
 - Named variables
-- Stanford TokensRegex compatible
-- Stanford Semgrex compatible
 
 ## Format
 
@@ -139,7 +139,7 @@ Variables can be either textual (*) or numeric (#)
 **Regular Expression**
 
 ```bash
-> I like to /move|break|stretch/ it
+> /^I (?:.+\s)?(\w+) (?:.+\s)?(it|this)/
 < Cool bro.
 ```
 
@@ -192,7 +192,11 @@ Example:
 @ trigger('said_hi')
 ```
 
-Then handle the 'said_hi' event in your code according to your needs.
+Then handle the 'said_hi' event in your code according to your needs:
+
+```js
+bot.on('said_hi', () => console.log('The bot said hi'));
+```
 
 ## Example
 

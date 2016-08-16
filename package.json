@@ -33,5 +33,5 @@
   "engines": {
     "node": "6.1.0"
   },
-  "tonicExample": "// NOTE: needs Node >= 6\nconst BotML = require('botml');\nlet bot = new BotML('https://raw.githubusercontent.com/BotML/botml-js/master/examples/hello.bot');\nbot.on('bot-start', () => console.log('Bot is ready!'));\nbot.start();"
+  "tonicExample": "// NOTE: needs Node >= 6\nconst BotML = require('botml');\nlet bot = new BotML('https://raw.githubusercontent.com/BotML/botml-js/master/examples/hello.bot');\nbot.on('start', () => console.log('Bot is ready!'));\nbot.start();"
 }
