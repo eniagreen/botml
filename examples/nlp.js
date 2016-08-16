@@ -1,6 +1,4 @@
 // Prerequisites
-let node_version = parseInt(process.versions.node[0]);
-if (node_version < 6) return console.error("Node >= 6.0 is needed.");
 try { require('pos'); require('pos-chunker'); require('chalk'); }
 catch (e) { return console.error("First: npm i pos pos-chunker chalk") };
 const chalk = require('chalk');
@@ -35,7 +33,7 @@ bot.addPatternCapability(
 );
 
 // Capture all events
-//bot.on('*', (event, ...args) => console.log(chalk.dim('Received event'), event, chalk.dim(JSON.stringify(args))));
+bot.on('*', (event, ...args) => console.log(chalk.dim('Received event'), event, chalk.dim(JSON.stringify(args))));
 
 // Load & start the chatbot
 bot.load(['./examples/nlp.bot']);
