@@ -3,9 +3,15 @@
 [![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml)
 [![NPM dependencies](https://david-dm.org/BotML/botml-js/status.svg)](https://david-dm.org/BotML/botml-js)
 
-<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful markup language for designing modern chatbots.
+<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful
+**markup language for designing modern chatbots** (a.k.a. conversational bots).
 
-## How to use
+## What
+
+BotML is a textual language to write your chatbot behaviors in the simplest form ever.
+See for yourself: a [calculator bot](https://github.com/BotML/botml-js/blob/master/examples/calculator.bot) written in only two lines.
+
+## Getting started
 
 ```bash
 $ npm install botml -g
@@ -27,20 +33,23 @@ bot.start();
 
 ## Features
 
-- Input & outputs
-- Randomness
-- Set & use lists
-- Set & use services (APIs)
-- Variables
-- RegExp compatible
-- Stanford TokensRegex compatible
-- Scripting
-- Dialogue management
-- Easily extendable to use <abbr title="Natural Language Processing">NLP</abbr>
+Existing features are of two sorts: basic features that cover a basic bot needs,
+and advanced features that enable richer conversational capabilities.
 
-To do:
-
-- Named variables
+* Basic features:
+  - [Dialogues](#dialogue)
+  - [Lists](#list)
+  - [Prompts](#prompt)
+  - [Random replies](#random-replies)
+  - [Workflows](#dialogue-workflow)
+  - [Variables](#variable)
+* Advanced features:
+  - [Services integrations](#service) (APIs)
+  - [Scripting](#scripting)
+  - [Triggers](#trigger)
+  - [Regular expressions](#regular-expression)
+  - [Stanford TokensRegex compatible](https://github.com/BotML/botml-js/blob/master/examples/nlp.bot)
+  - Extensions ([<abbr title="Natural Language Processing">NLP</abbr>](https://github.com/BotML/botml-js/blob/master/examples/nlp.js))
 
 ## Format
 
@@ -48,7 +57,7 @@ To do:
 
 **Specification**
 
-```bash
+```
 ! BOTML <version>
 ```
 
@@ -56,27 +65,27 @@ The current version being `1`.
 
 **Comment**
 
-```bash
+```
 # This line is not interpreted
 ```
 
 **Dialogue**
 
-```bash
+```
 > <input>
 < <output>
 ```
 
 Example:
 
-```bash
+```
 > hi
 < hi there
 ```
 
 **List**
 
-```bash
+```
 = <list>
 - <item>
 - <item>
@@ -84,7 +93,7 @@ Example:
 
 Example:
 
-```bash
+```
 = fruits
 - apples
 - apricots
@@ -94,11 +103,27 @@ Example:
 < Oh. I prefer [fruits].
 ```
 
+**Random replies**
+
+```
+> <input>
+< <reply candidate #1>
+< <reply candidate #2>
+```
+
+Example:
+
+```
+> Hello
+< Hi there
+< Howdy?
+```
+
 **Service**
 
 API endpoints can be leveraged as easily as:
 
-```bash
+```
 # Definition
 @ <name> <endpoint>
 # Consumption
@@ -107,7 +132,7 @@ API endpoints can be leveraged as easily as:
 
 Example:
 
-```bash
+```
 @ geodomain http://freegeoip.net/json/$
 
 > Where is *
@@ -119,7 +144,7 @@ Example:
 
 Scripting can be done with Javascript code evaluation.
 
-```bash
+```
 > It will cost you #{price} USD
 < `1000 * $price`k USD is a lot!
 ```
@@ -128,7 +153,7 @@ Scripting can be done with Javascript code evaluation.
 
 Variables can be either textual (*) or numeric (#)
 
-```bash
+```
 > My name is *{name}
 < Nice to meet you, $name
 
@@ -138,14 +163,14 @@ Variables can be either textual (*) or numeric (#)
 
 **Regular Expression**
 
-```bash
+```
 > /^I (?:.+\s)?(\w+) (?:.+\s)?(it|this)/
 < Cool bro.
 ```
 
 **Dialogue workflow**
 
-```bash
+```
 # A grocery shopper must know what and how many to buy
 ~ grocery shopping
 < What?
@@ -157,7 +182,7 @@ Variables can be either textual (*) or numeric (#)
 
 Simple question for learning a notion:
 
-```bash
+```
 < Where were you born?
 @ geoapi($).city
 > So you are from $.
@@ -165,7 +190,7 @@ Simple question for learning a notion:
 
 The same question with more checks and conditional branching:
 
-```bash
+```
 ~ origin
 < Where were you born?
 > in *{city}
@@ -180,13 +205,13 @@ else
 
 **Trigger**
 
-```bash
+```
 @ trigger('name')
 ```
 
 Example:
 
-```bash
+```
 > hello
 < hi
 @ trigger('said_hi')
@@ -198,7 +223,7 @@ Then handle the 'said_hi' event in your code according to your needs:
 bot.on('said_hi', () => console.log('The bot said hi'));
 ```
 
-## Example
+## Examples
 
 See the `examples/` directory.
 

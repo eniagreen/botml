@@ -7,9 +7,9 @@
 - salut
 
 > [bonjour]
-< [bonjour]. Quel est ton nom ?
-@ trigger('said_hi')
+< [bonjour]. Comment t'appelles-tu ?
 > Je m'appelle *
 > Mon nom est *
+> Je suis *
 > *
 < Je suis ravie de te rencontrer $ !
