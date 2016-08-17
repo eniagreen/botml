@@ -34,12 +34,12 @@
 
 # 2a. The domain geolocation service
 
-@ geodomain http://freegeoip.net/json/$
+@ geo_domain http://freegeoip.net/json/$
 
 > domain geolocation
 < For what domain?
 > *
-@ geodomain($).city
+@ geo_domain($).city
 < It is running from $.
 
 # 2b. The ip address service
