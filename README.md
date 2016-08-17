@@ -79,7 +79,7 @@ Advanced features:
 - [Triggers](#trigger)
 - [Regular expressions](#regular-expression)
 - [Stanford TokensRegex](#stanford-tokensregex)
-- [<abbr title="Natural Language Processing">NLP</abbr>](#natural-language-processing))
+- [Natural Language Processing](#natural-language-processing)
 
 ## Format
 
@@ -423,7 +423,8 @@ See [an example](https://github.com/BotML/botml-js/blob/master/examples/nlp.bot)
 
 #### Natural Language Processing
 
-NLP can be enabled through code integration.
+<abbr title="Natural Language Processing">NLP</abbr> can be enabled through
+code integration.
 See [an example](https://github.com/BotML/botml-js/blob/master/examples/nlp.js).
 
 ## Examples
