@@ -103,6 +103,31 @@ Example:
 < Oh. I prefer [fruits].
 ```
 
+Lists can also be used in prompts.
+
+**Prompt**
+
+```
+? [list]
+
+= <list>
+- <item>
+- <item>
+```
+
+Example:
+
+```
+> I need a pizza
+< What kind of pizza?
+? [pizza_types]
+
+= pizza_types
+- Peperroni
+- Margherita
+- Hawaiian
+```
+
 **Random replies**
 
 ```

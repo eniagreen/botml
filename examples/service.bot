@@ -1,25 +1,57 @@
 ! BOTML 1
 
 # Rely on a remote API using a named service and last reference.
-# The domain is actually saved in memory and is geolocalized to its city of
-# operation.
 #
-# Examples:
-#  > Where is github.com?
+# Example:
+#  < Hello there. What service do you need?
+#    - [domain geolocation] or [your ip]
+#  > domain geolocation
+#  < For what domain?
+#  > github.com
 #  < It is running from San Francisco.
 #
-#  > What is my ip?
-#  < It's 93.184.216.34
+#  > Hello
+#  < Hello there. What service do you need?
+#    - [domain geolocation] or [your ip]
+#  > your ip
+#  < Your IP address is 93.184.216.34
+
+
+# 1. Define the main workflow that prompts the user for the service he intends
+# to use
+
+~ workflow
+< Hello there. What service do you need?
+? [services]
+
+# The workflow relies on a prompt list
+= services
+- domain geolocation
+- your ip
+
+
+# 2. Define the two available services.
+
+# 2a. The domain geolocation service
 
 @ geodomain http://freegeoip.net/json/$
 
-> Where is *(?)
+> domain geolocation
+< For what domain?
+> *
 @ geodomain($).city
 < It is running from $.
 
+# 2b. The ip address service
 
 @ ip http://httpbin.org/ip
 
-> ip
+> your ip
 @ ip($).origin
-< It's $.
+< Your IP address is $.
+
+
+# 3. Make the workflow executable again.
+
+> hello
+~ [workflow]
