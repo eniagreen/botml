@@ -1,25 +1,57 @@
 # BotML
 
-[![NPM version](https://badge.fury.io/js/botml.svg)](http://badge.fury.io/js/botml)
-[![NPM dependencies](https://david-dm.org/BotML/botml-js/status.svg)](https://david-dm.org/BotML/botml-js)
+[![npm](https://img.shields.io/npm/v/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
+[![npm downloads](https://img.shields.io/npm/dt/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
+[![David](https://img.shields.io/david/BotML/botml-js.svg?style=flat-square)](https://david-dm.org/BotML/botml-js)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+[![License](https://img.shields.io/npm/l/botml.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 <abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful
 **markup language for designing modern chatbots** (a.k.a. conversational bots).
 
-## What
-
-BotML is a textual language to write your chatbot behaviors in the simplest form ever.
+Anyone (developers *and* non-developers) can use it to create and **teach bots how to behave**.
+Define the behavior of your chatbot using the right tiny bit of [formatting](#format) and engage the conversation in no time.
 See for yourself: a [calculator bot](https://github.com/BotML/botml-js/blob/master/examples/calculator.bot) written in only two lines.
 
-## Getting started
+## Table of Contents
 
-```bash
-$ npm install botml -g
+- [Install](#install)
+- [Usage](#usage)
+- [Features](#features)
+- [Format](#format)
+  - Basic features:
+    - [Dialogues](#dialogue)
+    - [Lists](#list)
+    - [Prompts](#prompt)
+    - [Random replies](#random-replies)
+    - [Workflows](#dialogue-workflow)
+    - [Variables](#variable)
+  - Advanced features:
+    - [Services integrations](#service) (APIs)
+    - [Scripting](#scripting)
+    - [Triggers](#trigger)
+    - [Regular expressions](#regular-expression)
+    - [Stanford TokensRegex compatible](https://github.com/BotML/botml-js/blob/master/examples/nlp.bot)
+    - Extensions ([<abbr title="Natural Language Processing">NLP</abbr>](https://github.com/BotML/botml-js/blob/master/examples/nlp.js))
+- [Examples](#examples)
+- [Contribute](#contribute)
+- [License](#license)
+
+## Install
+
+This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
+
+```sh
+$ npm i -g botml
 ```
 
-Then either run the cli:
+This will install both the `botml` node package and the `bot` client.
 
-```bash
+## Usage
+
+Either run the cli:
+
+```sh
 $ bot
 ```
 
@@ -35,21 +67,6 @@ bot.start();
 
 Existing features are of two sorts: basic features that cover a basic bot needs,
 and advanced features that enable richer conversational capabilities.
-
-* Basic features:
-  - [Dialogues](#dialogue)
-  - [Lists](#list)
-  - [Prompts](#prompt)
-  - [Random replies](#random-replies)
-  - [Workflows](#dialogue-workflow)
-  - [Variables](#variable)
-* Advanced features:
-  - [Services integrations](#service) (APIs)
-  - [Scripting](#scripting)
-  - [Triggers](#trigger)
-  - [Regular expressions](#regular-expression)
-  - [Stanford TokensRegex compatible](https://github.com/BotML/botml-js/blob/master/examples/nlp.bot)
-  - Extensions ([<abbr title="Natural Language Processing">NLP</abbr>](https://github.com/BotML/botml-js/blob/master/examples/nlp.js))
 
 ## Format
 
@@ -252,6 +269,10 @@ bot.on('said_hi', () => console.log('The bot said hi'));
 
 See the `examples/` directory.
 
-## Alternatives
+## Contribute
 
-AIML, ChatScript, RiveScript, SIML
+Feel free to dive in! [Open an issue](https://github.com/BotML/botml-js/issues/new) or submit PRs.
+
+## License
+
+MIT (c) Codename
