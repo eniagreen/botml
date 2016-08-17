@@ -19,7 +19,7 @@
   },
   "main": "lib/botml.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "preferGlobal": "true",
   "bin": {
@@ -29,6 +29,9 @@
     "chalk": "^1.1.3",
     "request": "^2.74.0",
     "yargs": "^5.0.0"
+  },
+  "devDependencies": {
+    "standard": "*"
   },
   "engines": {
     "node": ">= 6.1.0"
