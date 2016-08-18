@@ -1,0 +1,15 @@
+! BOTML 1
+
+# A bot that knows its jokes.
+#
+# Example:
+#  > Knock, knock
+#  < Who's there?
+#  > Bob
+#  < Bob who?
+
+> knock
+< Who's there?
+
+> *
+< $ who?
