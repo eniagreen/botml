@@ -6,7 +6,7 @@
 #  < Hello there. What service do you need?
 #    - [domain geolocation] or [your ip]
 #  > domain geolocation
-#  < For what domain?
+#  < For which domain?
 #  > github.com
 #  < It is running from San Francisco.
 #
@@ -26,8 +26,8 @@
 
 # The workflow relies on a prompt list
 = services
-- domain geolocation
-- your ip
+- geolocate a web domain
+- my ip
 
 
 # 2. Define the two available services.
@@ -36,8 +36,8 @@
 
 @ geo_domain http://freegeoip.net/json/$
 
-> domain geolocation
-< For what domain?
+> geolocate a web domain
+< For which domain?
 > *
 @ geo_domain($).city
 < It is running from $.
@@ -46,7 +46,7 @@
 
 @ ip http://httpbin.org/ip
 
-> your ip
+> my ip
 @ ip($).origin
 < Your IP address is $.
 
@@ -54,4 +54,6 @@
 # 3. Make the workflow executable again.
 
 > hello
+> hi
+> hey
 ~ [workflow]

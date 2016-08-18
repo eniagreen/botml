@@ -374,14 +374,16 @@ There are two types of events: standard events and custom events.
 
 **Standard events** are as follow:
 
-- 'start'
-- 'quit'
-- 'match', with two parameters: label, pattern
-- 'current-dialogue-start', with one parameter: dialogueLabel
-- 'current-dialogue-end', with one parameter: dialogueLabel
-- 'variables:set:NAME', with one parameter: value
-- 'patterns:set:NAME', with one parameter: value
-- '\*', catches *all* the standard and custom events
+- `'start'`
+- `'patterns:set:NAME'` with one String parameter: value
+- `'match'` with two String parameters: label, pattern
+- `'current-dialogue-start'` with one String parameter: dialogueLabel
+- `'reply'` with one String parameter: message
+- `'smart-replies'` with one Array parameter: replies
+- `'current-dialogue-end'` with one String parameter: dialogueLabel
+- `'variables:set:NAME'` with one String parameter: value
+- `'quit'`
+- `'\*'` catches *all* the standard and custom events
 
 **Custom events** *can* be triggered within [dialogues](#dialogue).
 
