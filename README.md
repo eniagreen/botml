@@ -383,7 +383,7 @@ There are two types of events: standard events and custom events.
 - `'current-dialogue-end'` with one String parameter: dialogueLabel
 - `'variables:set:NAME'` with one String parameter: value
 - `'quit'`
-- `'\*'` catches *all* the standard and custom events
+- `'*'` catches *all* the standard and custom events
 
 **Custom events** *can* be triggered within [dialogues](#dialogue).
 
