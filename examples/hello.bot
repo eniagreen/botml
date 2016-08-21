@@ -18,7 +18,7 @@
 
 > [hello]
 < [hello]. What's your name?
-@ trigger('said_hi')
-> My name is *
-> *
-< Nice to meet you $!
+> My name is *{name}
+> I'm *{name}
+> *{name}
+< Nice to meet you $name!

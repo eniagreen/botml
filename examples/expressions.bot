@@ -10,16 +10,16 @@
 # Using a basic expression
 # This conversation doesn't always catch the Verb position correctly.
 
-> I * (*) * (it|this)
-< Do you really $1 $2
-< So you $1 $2, huh?
+> I * (it|this)
+< Do you really $?
+< So you $, huh?
 
 
 # Using a regular expression
 # This conversation doesn't always catch the Verb position correctly either.
 
 > /^I (?:.+\s)?(\w+) (?:.+\s)?(it|this)/
-< Do you really $1 $2
+< Do you really $1 $2?
 < So you $1 $2, huh?
 
 
@@ -28,5 +28,5 @@
 # words and will catch the Verb correctly all the time.
 
 > I [ !{ tag:/VB.*/ } ]* (?$verb [{ tag: /VB.*/ }]) []* (?$what /it|this/)
-< Do you really $1 $2
+< Do you really $1 $2?
 < So you $1 $2, huh?

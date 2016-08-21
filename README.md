@@ -317,7 +317,7 @@ Variables are the way to detect, format, store and reuse meaningful information.
 
 A variable *can* be captured within a `>` line ([dialogue](#dialogue)).
 
-It *must* be either textual (`*`) or numeric (`#`).
+It *must* be either textual (`$`), numeric (`#`) or alphanumeric (`*`).
 
 It *can* be used in `<` lines.
 
@@ -328,6 +328,10 @@ It *can* be used in `<` lines.
 > I am #{age} years old
 < Seems that you have `age`
 ```
+
+The variable format is `${VARIABLE_NAME}` (with its numeric and alphanumeric
+equivalents). But for convenient of use, the format `$VARIABLE_NAME` can be used
+too for textual and numeric variables.
 
 A special `$` variable always refers to the last matching value of a dialogue or
 the result of the previous line (the result of a service consumption for
@@ -345,6 +349,9 @@ A regular expression *must* be wrapped in `/` and *cannot* be mixed with
 > /^I (?:.+\s)?(\w+) (?:.+\s)?(it|this)/
 < Cool bro.
 ```
+
+In fact, the [XRegExp](http://xregexp.com/) library is used under the hood,
+giving you access to leading named captures, inline comments and mode modifiers.
 
 #### Dialogue workflow
 

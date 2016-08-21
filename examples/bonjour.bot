@@ -8,8 +8,8 @@
 
 > [bonjour]
 < [bonjour]. Comment t'appelles-tu ?
-> Je m'appelle *
-> Mon nom est *
-> Je suis *
-> *
-< Je suis ravie de te rencontrer $ !
+> Je m'appelle *{nom}
+> Mon nom est *{nom}
+> Je suis *{nom}
+> *{nom}
+< Je suis ravie de te rencontrer $nom !
