@@ -26,7 +26,7 @@ bot.addPatternCapability(
   return {
     label: 'TokensRegex',
     test: (input) => chunker.chunk(extractPOS(input), pattern).indexOf('{') > -1,
-    match: (input) => {
+    exec: (input) => {
       let pos = extractPOS(input)
       let chunks = chunker.chunk(pos, pattern)
       // let test = chunks.indexOf('{') > -1

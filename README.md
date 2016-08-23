@@ -288,8 +288,8 @@ Example:
 ```
 @ geo_domain http://freegeoip.net/json/$
 
-> Where is *
-@ geo_domain($).city
+> Where is *{domain}
+@ geo_domain($domain).city
 < It is running from $.
 ```
 
