@@ -7,8 +7,9 @@
 [![test](https://img.shields.io/badge/test-live-blue.svg?style=flat-square)](https://tonicdev.com/npm/botml)
 [![License](https://img.shields.io/npm/l/botml.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-<abbr title="Bot Markup Language">BotML</abbr> is a declarative and powerful
-**markup language for designing modern chatbots** (a.k.a. conversational bots).
+[<abbr title="Bot Markup Language">BotML</abbr>](https://codename.co/botml/) is
+a declarative and powerful **markup language for designing modern chatbots**
+(a.k.a. conversational bots).
 
 Anyone (developers *and* non-developers) can use it to create and **teach bots
 how to behave**.
@@ -388,7 +389,7 @@ There are two types of events: standard events and custom events.
 - `'reply'` with one String parameter: message
 - `'smart-replies'` with one Array parameter: replies
 - `'current-dialogue-end'` with one String parameter: dialogueLabel
-- `'variables:set:NAME'` with one String parameter: value
+- `'variable:set:NAME'` with one String parameter: value
 - `'quit'`
 - `'*'` catches *all* the standard and custom events
 
