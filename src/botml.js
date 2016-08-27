@@ -226,3 +226,5 @@ export default class BotML {
     return context.saidSomething
   }
 }
+
+export const version = require('../package.json').version
