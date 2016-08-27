@@ -8,9 +8,10 @@
 #  < Great!
 #    How old are you?
 #  > 25
-#  < And where were you born?
+#  < Alright
+#    And where were you born?
 #  > I was born in Bermuda Island
-#  < Gotcha. You're from Bermuda Island.
+#  < Ok
 #    What is your email address?
 #  > email@example.org
 #  < Perfect. We'll keep in touch with you over 'email@example.org'.
@@ -19,32 +20,28 @@
 < [hello] sir. Please answer this quick survey to help us better know you. [ok]?
 > [ok]
 < Great!
-> *
-< You said $
 ~ [age]
 ~ [city of birth]
 ~ [email address]
+< [ok]. We'll keep in touch with you over $email.
 
 ~ age
 < How old are you?
 > #{age}
 > #{age} years old
+< [ok]
 
 ~ city of birth
 < And where were you born?
 > * in *{city}
 > * near *{city}
 > *{city}
-if $city == 'seoul'
-  < Annyeong haseyo!
-else
-  < Gotcha. You're from $city.
+< [ok]
 
 ~ email address
 < What is your email address?
+> * is *{email}
 > *{email}
-if $email
-  < Perfect. We'll keep in touch with you over ${email}.
 
 # dictionnaries
 
@@ -57,6 +54,7 @@ if $email
 = ok
 - ok
 - alright
+- perfect
 
 # Make the workflow executable again.
 
