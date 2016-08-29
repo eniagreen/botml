@@ -1,8 +1,7 @@
 import chalk from 'chalk'
-import { exec } from 'child_process'
+import { exec, execSync } from 'child_process'
 import context from './context'
 import emitter from './emitter'
-import request from 'request'
 
 export function random (array) {
   return array[Math.floor(Math.random() * array.length)]
@@ -80,19 +79,17 @@ export function say (something) {
   if (process.env.enableVoice) exec(`say -v Ava "${something}"`)
 }
 
-export async function service (name, output, onsuccess, onerror) {
+export function service (name, output, onsuccess, onerror) {
   let url = context.services.get(name).value
   url = interpolateVariables(url)
   debug('service', name, url)
-  await request(url, (error, response, body) => {
-    if (error) return onerror(error)
-    try {
-      let result = JSON.parse(body)
-      result = output ? eval(`result${output}`) : result // eslint-disable-line no-eval
-      context.variables.set('$', result)
-      onsuccess(result)
-    } catch (e) {
-      onerror(e)
-    }
-  })
+  try {
+    let body = execSync(`curl -s --compressed ${url}`, { timeout: 1000 })
+    let result = JSON.parse(body)
+    result = output ? eval(`result${output}`) : result // eslint-disable-line no-eval
+    context.variables.set('$', result)
+    onsuccess(result)
+  } catch (e) {
+    onerror(e)
+  }
 }
