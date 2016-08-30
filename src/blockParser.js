@@ -3,7 +3,7 @@ import machina from 'machina'
 import context from './context'
 import emitter from './emitter'
 import { patternify } from './pattern'
-import { debug, interpolateLists, interpolateVariables, prompt, random, say, service, warn } from './utils'
+import { debug, interpolateLists, interpolateVariables, random, say, service, warn } from './utils'
 
 const TYPES = {
   '>': 'dialogue',
@@ -100,7 +100,7 @@ let Parser = machina.Fsm.extend({
       _onEnter: function () {
         let list = this.block.match(/^\s*\?\s*\[([^\]]+)\]/m)[1]
         let replies = context.lists.get(list)
-        if (!replies) throw `List undefined: '${list}'`
+        if (!replies) throw new Error(`List undefined: '${list}'`)
         console.log(chalk.dim('smart replies:'), replies.value.map(s => `[${s}]`).join(chalk.dim(', ')))
         emitter.emit('smart-replies', replies.value)
 
@@ -112,7 +112,7 @@ let Parser = machina.Fsm.extend({
 
     service: {
       _onEnter: function () {
-        let [label, value, output] = this.line.match(/^(\w+)\s*\(([^\)]*)\)(\.[\.\w\[\]]+)?\s*$/i).slice(1)
+        let [label, value, output] = this.line.match(/^(\w+)\s*\(([^\)]*)\)(\.[\.\w\[\]]+)?\s*$/i).slice(1) // eslint-disable-line no-unused-vars
 
         // Case 1. Trigger
         if (label === 'trigger') {
@@ -135,7 +135,7 @@ let Parser = machina.Fsm.extend({
             throw error
           })
         } else {
-          throw `'Unknown service: ${label}'`
+          throw Error(`'Unknown service: ${label}'`)
         }
       }
     },
