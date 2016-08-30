@@ -1,16 +1,16 @@
 import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
-import Block from './block'
 import context from './context'
 import emitter from './emitter'
+import Parser from './blockParser'
 import { debug, info, inspect, prompt, stats, warn } from './utils'
 import { execPattern } from './pattern'
 import { exec } from 'child_process'
 
 let currentDialogue
 
-export default class BotML {
+class BotML {
   constructor (files) {
     if (files) {
       if (typeof (files) === 'string') {
@@ -49,7 +49,7 @@ export default class BotML {
     // Handle the case where one of the workflows must be activated and used by
     // default when the user connects to the bot.
     if (context.workflows.size) {
-      let workflow = new Block(Array.from(context.workflows)[0][1].raw)
+      let workflow = new Parser(Array.from(context.workflows)[0][1].block)
       debug('Loaded workflow', workflow.label)
       this._handleDialogue(workflow)
     }
@@ -91,16 +91,18 @@ export default class BotML {
           info(chalk.bold('workflows'), inspect('workflows'))
           break
         case '/activators':
+          debug('current dialogue activators:')
           if (currentDialogue) {
-            info(currentDialogue.dialogue.activators.join(' , '))
+            info(currentDialogue.dialogue.activators().join(' , '))
           }
-          context.dialogues.forEach(dialogue =>
-            info(dialogue.activators.join(' , '))
-          )
+          debug('global dialogue activators:')
+          context.dialogues.forEach(dialogue => {
+            info(dialogue.activators().join(' , '))
+          })
           break
         case '/current':
           if (currentDialogue) {
-            info(currentDialogue.label, '\n' + currentDialogue.dialogue.raw)
+            info(currentDialogue.label, '\n' + currentDialogue.dialogue.block)
           } else {
             info('No current dialogue.')
           }
@@ -112,8 +114,8 @@ export default class BotML {
     }
 
     let handle = (input, dialogue, label) => {
-      dialogue.activators &&
-      dialogue.activators.filter(p => RegExp(p.source, p.flags).test(input)).some(pattern => {
+      dialogue.activators() &&
+      dialogue.activators().filter(p => RegExp(p.source, p.flags).test(input)).some(pattern => {
         // debug(`match ${label}`, pattern);
         emitter.emit('match', label, pattern.toString())
 
@@ -198,11 +200,23 @@ export default class BotML {
       .map(block => block.trim())         // trim each of them
 
     blocks.forEach(block => {
-      let b = new Block(block)
+      let b = new Parser(block)
+      if (!b.label) b.label = b.block.match(/^\s*[<>=~\-@\?]\s*(.+)$/m)[1]
+      switch (b.type) {
+        case 'service':
+          b.value = b.label.match(/^(\w+)\s+([^\s]+)\s*$/)[2]
+          b.label = b.label.match(/^(\w+)\s+([^\s]+)\s*$/)[1]
+          break
+        case 'list':
+          b.value = b.block
+              .replace(/^\s*=.+$\n\s*\-/m, '')
+              .split(/^\s*-\s*/m).map(s => s.trim())
+          break
+      }
       if (context[`${b.type}s`].has(b.label)) {
         warn(`${b.type} "${b.label}" already set.`)
       }
-      context[`${b.type}s`].set(b.label.toLowerCase(), b)
+      context[`${b.type}s`].set(b.label, b)
     })
   }
 
@@ -213,10 +227,9 @@ export default class BotML {
 
     currentDialogue = {
       label: currentDialogue ? currentDialogue.label : dialogue.label,
-      dialogue: new Block(dialogue.raw) // clone
+      dialogue: new Parser(dialogue.block) // clone
     }
-
-    currentDialogue.dialogue.process()
+    currentDialogue.dialogue.next()
 
     if (!currentDialogue.dialogue.remaining()) {
       emitter.emit('current-dialogue-end', currentDialogue.label)
@@ -227,4 +240,7 @@ export default class BotML {
   }
 }
 
-export const version = require('../package.json').version
+// export const version = require('../package.json').version
+
+exports['default'] = BotML
+module.exports = exports['default']
