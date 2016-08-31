@@ -19,7 +19,7 @@ const BASIC_EXPRESSION_INTERPOLATIONS = [
   // '*' => '(.*)'
   { search: /(^|[\s,;—])\*(?!\w)/g, replaceWith: '$1(.*)' },
   // '[list_name]' => '(?:list_item_1|list_item_2)'
-  { search: /\[(\w+)\]/g, replaceWith: (m, l) => `(?:${context.lists.get(l.toLowerCase()).value.join('|')})` }
+  { search: /\[(\w+)\]/g, replaceWith: (m, l) => `(${context.lists.get(l.toLowerCase()).value.join('|')})` }
 ]
 
 // XRegExp-ifies a string or already-defined pattern
