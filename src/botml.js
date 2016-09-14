@@ -90,6 +90,11 @@ class BotML {
           info(chalk.bold('variables'), inspect('variables'))
           info(chalk.bold('workflows'), inspect('workflows'))
           break
+        case '/block':
+          if (currentDialogue) {
+            info(currentDialogue.dialogue.block)
+          }
+          break
         case '/activators':
           debug('current dialogue activators:')
           if (currentDialogue) {

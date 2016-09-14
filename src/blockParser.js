@@ -63,8 +63,7 @@ let Parser = machina.Fsm.extend({
 
     dialogue: {
       _onEnter: function () {
-        // prepare for the next instruction
-        this.activators() // preload
+        this.activators(true) // preload
         this.block = removeBlockLinesOfType(this.block, '>')
         if (this.startOfBlock) this.next(false)
         delete this.startOfBlock
@@ -175,7 +174,8 @@ let Parser = machina.Fsm.extend({
     delete this.startOfBlock
   },
 
-  activators: function () {
+  activators: function (forceReloading = false) {
+    if (!forceReloading && this._activators) return this._activators
     let _activators = this.block.match(/(^\s*>.*$\n)+/m)
     if (!_activators) return this._activators || []
     this._activators = _activators && _activators[0].split(/\s*>\s*/).filter(s => s)
