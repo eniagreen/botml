@@ -7,6 +7,7 @@ class WatchMap extends Map {
   }
   set (key, value) {
     super.set(key, value)
+    emitter.emit(`${this.name}:set`, key, value)
     emitter.emit(`${this.name}:set:${key}`, value)
   }
 }
