@@ -178,7 +178,7 @@ let Parser = machina.Fsm.extend({
     if (!forceReloading && this._activators) return this._activators
     let _activators = this.block.match(/(^\s*>.*$\n)+/m)
     if (!_activators) return this._activators || []
-    this._activators = _activators && _activators[0].split(/\s*>\s*/).filter(s => s)
+    this._activators = _activators && _activators[0].split(/^\s*>\s*/m).filter(s => s)
     this._activators = this._activators.map(patternify)
     return this._activators || []
   },
