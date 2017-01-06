@@ -43,7 +43,7 @@ class BotML {
     emitter.on(eventName, triggerFn)
   }
 
-  start () {
+  start (withPrompt = true) {
     emitter.emit('start')
 
     // Handle the case where one of the workflows must be activated and used by
@@ -54,7 +54,7 @@ class BotML {
       this._handleDialogue(workflow)
     }
 
-    this.prompt()
+    if (withPrompt) this.prompt()
   }
 
   stop () {
