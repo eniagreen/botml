@@ -12,6 +12,7 @@ let currentDialogue
 
 class BotML {
   constructor (files) {
+    this.context = context
     if (files) {
       if (typeof (files) === 'string') {
         this.load([ files ])
