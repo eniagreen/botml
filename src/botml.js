@@ -170,6 +170,35 @@ class BotML {
     }
   }
 
+  // async hack
+  asyncSend (input) {
+    return new Promise((resolve, reject) => {
+      let changes = false
+      let handled = false
+      botml.on('reply', () => {
+        resolve()
+        changes = true
+        handled = true
+        return
+      })
+      //botml.on('*', () => {
+      //  changes = true
+      //})
+      botml.send(input)
+      // TODO surely there is a better way :p
+      setTimeout(() => {
+        if (handled) return
+        if (changes) {
+          resolve()
+        } else {
+          reject()
+        }
+        handled = true
+        return
+      }, 100)
+    })
+  }
+
   // Scans a directory recursively looking for .bot files
   _loadDirectory (dir) {
     fs.readdirSync(dir).forEach(file => {
