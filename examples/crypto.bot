@@ -1,0 +1,7 @@
+! BOTML 1
+
+@ crypto_price https://min-api.cryptocompare.com/data/price?fsym=$coin&tsyms=EUR
+
+> #amount ${coin}
+@ crypto_price().EUR
+< ~ $ €
