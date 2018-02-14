@@ -3,7 +3,7 @@ import context from './context'
 
 const BASIC_EXPRESSION_INTERPOLATIONS = [
   // escape characters '.' and '?'
-  { search: /[\.\?]/g, replaceWith: '\\$&' },
+  { search: /[.?]/g, replaceWith: '\\$&' },
   // '#{varName}' => '(?<varName> \d[\d\,\.\s]* )'
   { search: /#\{([a-z][\w_]*)\}/g, replaceWith: '(?<$1>\\d[\\d\\,\\.\\s]*)' },
   // '${varName}' => '(?<varName> [a-z]+ )'
@@ -28,7 +28,6 @@ export function patternify (rawPattern) {
   context.patterns.forEach(({ label, match, func }) => {
     if (match.test(rawPattern)) {
       pattern = func(rawPattern)
-      return
     }
   })
   if (pattern) return pattern

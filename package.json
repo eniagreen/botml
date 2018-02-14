@@ -30,10 +30,10 @@
   },
   "main": "lib/botml.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel src -d lib",
-    "test": "./node_modules/.bin/standard src/** && ./node_modules/.bin/mocha test/**/*.test.js"
+    "build": "npx babel src -d lib",
+    "test": "npx standard src/** && npx mocha test/**/*.test.js"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "bin": {
     "bot": "lib/cli.js"
   },

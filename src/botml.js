@@ -170,35 +170,6 @@ class BotML {
     }
   }
 
-  // async hack
-  asyncSend (input) {
-    return new Promise((resolve, reject) => {
-      let changes = false
-      let handled = false
-      botml.on('reply', () => {
-        resolve()
-        changes = true
-        handled = true
-        return
-      })
-      //botml.on('*', () => {
-      //  changes = true
-      //})
-      botml.send(input)
-      // TODO surely there is a better way :p
-      setTimeout(() => {
-        if (handled) return
-        if (changes) {
-          resolve()
-        } else {
-          reject()
-        }
-        handled = true
-        return
-      }, 100)
-    })
-  }
-
   // Scans a directory recursively looking for .bot files
   _loadDirectory (dir) {
     fs.readdirSync(dir).forEach(file => {
@@ -236,7 +207,7 @@ class BotML {
 
     blocks.forEach(block => {
       let b = new Parser(block)
-      if (!b.label) b.label = b.block.match(/^\s*[<>=~\-@\?]\s*(.+)$/m)[1]
+      if (!b.label) b.label = b.block.match(/^\s*[<>=~\-@?]\s*(.+)$/m)[1]
       switch (b.type) {
         case 'service':
           b.value = b.label.match(/^(\w+)\s+([^\s]+)\s*$/)[2]
@@ -244,7 +215,7 @@ class BotML {
           break
         case 'list':
           b.value = b.block
-              .replace(/^\s*=.+$\n\s*\-/m, '')
+              .replace(/^\s*=.+$\n\s*-/m, '')
               .split(/^\s*-\s*/m).map(s => s.trim())
           break
       }

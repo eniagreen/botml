@@ -8,7 +8,7 @@ export function random (array) {
 }
 
 export function debug (...something) {
-  process.env.debug ? console.log(chalk.dim(`DEBUG: ${something.join(' | ')}`)) : false
+  if (process.env.debug) console.log(chalk.dim(`DEBUG: ${something.join(' | ')}`))
 }
 
 export function info (...something) {
@@ -32,10 +32,10 @@ export function prompt (callback) {
 }
 
 export function interpolateVariables (text) {
-  return text.replace(/\$([a-z][\w_\-]*)(\.[\.\w\[\]]*[\w\]])/g, (match, variable, output) => {
+  return text.replace(/\$([a-z][\w_-]*)(\.[.\w[\]]*[\w\]])/g, (match, variable, output) => {
     // let result = context.variables.get(variable.toLowerCase())
     return eval(`result${output}`) // eslint-disable-line no-eval
-  }).replace(/[#\$]([a-z][\w_-]*)/g, (match, variable) => {
+  }).replace(/[#$]([a-z][\w_-]*)/g, (match, variable) => {
     return context.variables.get(variable.toLowerCase())
   }).replace(/(\$\d*)/g, (match, variable) => {
     return context.variables.get(variable.toLowerCase())

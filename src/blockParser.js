@@ -51,7 +51,7 @@ let Parser = machina.Fsm.extend({
     this.block = block
     this.startOfBlock = true
     if (this.type === 'workflow') {
-      this.label = this.block.match(/^\s*[<>=~\-@\?]\s*(.+)$/m)[1]
+      this.label = this.block.match(/^\s*[<>=~\-@?]\s*(.+)$/m)[1]
       this.block = removeBlockCurrentLine(this.block)
     }
   },
@@ -111,7 +111,7 @@ let Parser = machina.Fsm.extend({
 
     service: {
       _onEnter: function () {
-        let [label, value, output] = this.line.match(/^(\w+)\s*\(([^\)]*)\)(\.[\.\w\[\]]+)?\s*$/i).slice(1) // eslint-disable-line no-unused-vars
+        let [label, value, output] = this.line.match(/^(\w+)\s*\(([^)]*)\)(\.[.\w[\]]+)?\s*$/i).slice(1) // eslint-disable-line no-unused-vars
 
         // Case 1. Trigger
         if (label === 'trigger') {
@@ -163,7 +163,7 @@ let Parser = machina.Fsm.extend({
 
     // 2. Store the first line stripped from its symbol
     if (type !== 'terminated') {
-      this.line = this.block.match(/^\s*[<>=~\-@\?]\s*(.+)$/m)[1].trim()
+      this.line = this.block.match(/^\s*[<>=~\-@?]\s*(.+)$/m)[1].trim()
     }
 
     if (!process) delete this.startOfBlock
