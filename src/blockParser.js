@@ -18,7 +18,7 @@ let removeBlockCurrentLine = (block) =>
   block.replace(/^.*$\n?/m, '')
 
 let removeBlockLinesOfType = (block, type) =>
-  block.replace(RegExp(`(^\\s*${type}.*$\\n)+`, 'm'), '')
+  block.replace(RegExp(`(^\\s*${type}.*$\\n?)+`, 'm'), '')
 
 function interpolateReferencingWorkflow (text) {
   let isReferencingWorkflow = /^\s*~\s*\[/
@@ -127,6 +127,7 @@ let Parser = machina.Fsm.extend({
         } else if (context.services.has(label)) {
           service(label, output, (result) => {
             debug(JSON.stringify(result))
+            console.log(JSON.stringify(result))
             this.block = removeBlockCurrentLine(this.block)
             this.next()
           }, (error) => {

@@ -10,8 +10,6 @@ const BASIC_EXPRESSION_INTERPOLATIONS = [
   { search: /\$\{([a-z][\w_]*)\}/g, replaceWith: '(?<$1>[a-z]+)' },
   // '*{varName}' => '(?<varName> .* )'
   { search: /\*\{([a-z][\w_]*)\}/g, replaceWith: '(?<$1>.*)' },
-  // '#varName' => '(?<varName> \d[\d\,\.\s]* )'
-  { search: /#([a-z][\w_]*)/g, replaceWith: '(?<$1>\\d[\\d\\,\\.\\s]*)' },
   // '$varName' => '(?<varName> [a-z]+ )'
   { search: /\$([a-z][\w_]*)/g, replaceWith: '(?<$1>[a-z]+)' },
   // '#' => '(\d+)'

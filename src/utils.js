@@ -86,7 +86,9 @@ export function service (name, output, onsuccess, onerror) {
   try {
     let body = execSync(`curl -s --compressed "${url}"`, { timeout: 1000 })
     let result = JSON.parse(body)
+    console.log('service called:', name, { result })
     result = output ? eval(`result${output}`) : result // eslint-disable-line no-eval
+    console.log('service called:', name, { result })
     context.variables.set('$', result)
     onsuccess(result)
   } catch (e) {
