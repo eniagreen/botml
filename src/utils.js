@@ -79,16 +79,27 @@ export function say (something) {
   if (process.env.enableVoice) exec(`say -v Ava "${something}"`)
 }
 
+function trackServiceVariables (serviceName, props) {
+  Object.keys(props).forEach(key => {
+    const value = props[key]
+    context.variables.set(`last_service_${key}`, value)
+    context.variables.set(`service_${serviceName}_${key}`, value)
+  })
+}
+
 export function service (name, output, onsuccess, onerror) {
   let url = context.services.get(name).value
   url = interpolateVariables(url)
-  debug('service', name, url)
+  debug('service', { name, url, output })
+  trackServiceVariables(name, { name, url, output })
   try {
     let body = execSync(`curl -s --compressed "${url}"`, { timeout: 4000 })
     let result = JSON.parse(body)
+    trackServiceVariables(name, { raw_result: result })
     console.log('service called:', name, { result })
     result = output ? eval(`result${output}`) : result // eslint-disable-line no-eval
     console.log('service called:', name, { result })
+    trackServiceVariables(name, { result })
     context.variables.set('$', result)
     onsuccess(result)
   } catch (e) {
