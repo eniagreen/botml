@@ -1,6 +1,6 @@
 const { runDialogueTests } = require('./base')
 
-runDialogueTests('description', [{
+runDialogueTests('workflows', [{
   file: 'workflows.bot',
   tests: [
     {

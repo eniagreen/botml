@@ -1,0 +1,30 @@
+! BOTML 2
+
+~ default
+< hi
+
+# global activator
+> start
+~ [who]
+
+~ who
+< first name?
+> ${first_name}
+< last name?
+> ${last_name}
+` `Dear ${first_name} ${last_name}`
+@ trigger('setvar', full_name=$)
+< Ok, I will call you "$full_name"\nand what is your email?
+> *{email}
+```
+function validateEmail (email) {
+  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email)
+}
+validateEmail('$email')
+```
+@ trigger('setvar', email_valid=$)
+< your email validity: $email_valid
+
+~ catch-all
+> *
+< catch $

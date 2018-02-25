@@ -45,5 +45,6 @@ function runCustomTests (description, testCases, testFunction) {
 
 module.exports = {
   runDialogueTests,
-  runCustomTests
+  runCustomTests,
+  toArray
 }
