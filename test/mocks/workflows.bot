@@ -1,0 +1,39 @@
+! BOTML 1
+
+~ default
+< hi
+
+# global activator
+> start workflow from a global activator
+~ [workflow-steps]
+
+# main workflow with its workflow activator
+~ workflow
+> start workflow from a workflow activator
+~ [workflow-steps]
+
+~ workflow-steps
+< step 1
+~ [flow-1]
+~ [flow-2]
+~ [flow-3]
+# < step 6
+
+# workflow with a local activator
+~ flow-1
+< step 2
+> *
+< step 3
+
+# workflow with its regex activator
+~ flow-2
+> /this|that/
+< step 4
+
+# workflow with only execution code
+~ flow-3
+< step 5
+
+~ catch-all
+> *
+< catch
