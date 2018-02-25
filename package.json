@@ -29,7 +29,7 @@
   },
   "main": "lib/botml.js",
   "scripts": {
-    "test": "npx standard lib/** && npx mocha test/**/*.test.js"
+    "test": "npx mocha test/**/*.test.js"
   },
   "preferGlobal": true,
   "bin": {
@@ -43,11 +43,9 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "decache": "^4.4.0",
     "mocha": "^2.4.5",
     "standard": "*"
-  },
-  "standard": {
-    "parser": "babel-eslint"
   },
   "engines": {
     "node": ">= 6.0.0"
