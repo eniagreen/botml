@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const { assert } = require('chai')
-const { patternify, execPattern } = require('../../lib/pattern.js')
+const { patternify, execPattern } = require('../lib/pattern.js')
 const decache = require('decache')
 
 const TEST_CASES = [{
@@ -31,9 +31,9 @@ describe('Workflows', function () {
     describe(testCase.file, () => {
       testCase.tests.forEach(test => {
         it(test.label, () => {
-          decache('../../lib/botml')
-          const Botml = require('../../lib/botml')
-          let bot = new Botml(`test/workflows/${testCase.file}`)
+          decache('../lib/botml')
+          const Botml = require('../lib/botml')
+          let bot = new Botml(`./test/mocks/${testCase.file}`)
           process.on('SIGINT', bot.stop)
           const dialogue = []
           bot.on('reply', reply => {

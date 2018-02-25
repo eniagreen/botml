@@ -29,7 +29,9 @@
   },
   "main": "lib/botml.js",
   "scripts": {
-    "test": "npx mocha test/**/*.test.js"
+    "test": "npx mocha test/**/*.test.js",
+    "preautotest": "npm i -g mocha",
+    "autotest": "npx supervisor -q -t -n exit -x mocha -- -b"
   },
   "preferGlobal": true,
   "bin": {
@@ -45,7 +47,8 @@
     "chai": "^3.5.0",
     "decache": "^4.4.0",
     "mocha": "^2.4.5",
-    "standard": "*"
+    "standard": "*",
+    "supervisor": "^0.12.0"
   },
   "engines": {
     "node": ">= 6.0.0"

@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
-const { patternify, execPattern } = require('../../lib/pattern.js')
+const { patternify, execPattern } = require('../lib/pattern.js')
 
 const INPUT_TEXT = 'I would like to buy 10 potatoes'
 
