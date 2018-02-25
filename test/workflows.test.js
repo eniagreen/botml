@@ -1,41 +1,37 @@
-/* eslint-env mocha */
-const { assert } = require('chai')
-const { patternify, execPattern } = require('../lib/pattern.js')
-const decache = require('decache')
-// process.env.debug = false
+const { runDialogueTests } = require('./base')
 
-const TEST_CASES = [{
+runDialogueTests('description', [{
   file: 'workflows.bot',
   tests: [
     {
       label: 'auto start',
       autostart: true,
-      expectedDialogue: toArray`
+      expectedDialogue: `
         < hi
       `
     }, {
       label: 'start workflow from a global activator',
-      expectedDialogue: toArray`
+      expectedDialogue: `
         > start workflow from a global activator
         < step 1
         < step 2
       `
     }, {
       label: 'start workflow from a workflow activator',
-      expectedDialogue: toArray`
+      expectedDialogue: `
         > start workflow from a workflow activator
         < step 1
         < step 2
       `
     }, {
       label: 'do not start a workflow from an invalid activator',
-      expectedDialogue: toArray`
+      expectedDialogue: `
         > something else
         < catch
       `
     }, {
       label: 'complete a workflow',
-      expectedDialogue: toArray`
+      expectedDialogue: `
         > start workflow from a workflow activator
         < step 1
         < step 2
@@ -48,35 +44,4 @@ const TEST_CASES = [{
       `
     }
   ]
-}]
-
-function toArray (text) {
-  return text.toString().split(/\n/).map(l => l.trim()).filter(l => l)
-}
-
-describe('Workflows', function () {
-  TEST_CASES.forEach(testCase => {
-    describe(testCase.file, () => {
-      testCase.tests.forEach(test => {
-        it(test.label, () => {
-          decache('../lib/botml')
-          const Botml = require('../lib/botml')
-          let bot = new Botml(`./test/mocks/${testCase.file}`)
-          process.on('SIGINT', bot.stop)
-          const dialogue = []
-          bot.on('reply', reply => {
-            dialogue.push(`< ${reply}`)
-          })
-          if (test.autostart) bot.start()
-          const expectedDialogue = test.expectedDialogue
-          const inputSequence = expectedDialogue.filter(l => l.match(/^>/)).map(l => l.replace(/^>\s*/, ''))
-          inputSequence.forEach(input => {
-            dialogue.push(`> ${input}`)
-            bot.send(input)
-          })
-          assert.deepEqual(dialogue.map(l => l.toLowerCase()), expectedDialogue.map(l => l.toLowerCase()))
-        })
-      })
-    })
-  })
-})
+}])
