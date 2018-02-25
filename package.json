@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "0.3.1",
+  "version": "2.0.0-alpha.1",
   "description": "BotML is a powerful markup language for modern chatbots.",
   "keywords": [
     "bot",
@@ -13,8 +13,8 @@
     "bot framework",
     "superscript"
   ],
-  "author": "Arnaud Leymet <arnaud.leymet@gmail.com>",
-  "license": "MIT",
+  "author": "Arnaud Leymet <arnaud@codename.co>",
+  "license": "UNLICENSED",
   "homepage": "https://codename.co/botml/",
   "repository": {
     "type": "git",
