@@ -24,32 +24,24 @@
     "url": "https://github.com/botml/botml-js/issues"
   },
   "directories": {
-    "src": "src",
     "lib": "lib",
     "example": "examples"
   },
   "main": "lib/botml.js",
   "scripts": {
-    "build": "npx babel src -d lib",
-    "test": "npx standard src/** && npx mocha test/**/*.test.js"
+    "test": "npx standard lib/** && npx mocha test/**/*.test.js"
   },
   "preferGlobal": true,
   "bin": {
     "bot": "lib/cli.js"
   },
   "dependencies": {
-    "babel-runtime": "^6.0.0",
     "chalk": "^1.1.3",
     "machina": "^2.0.0",
     "xregexp": "^3.1.1",
     "yargs": "^5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.0.0",
-    "babel-eslint": "^6.0.0",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-stage-3": "^6.0.0",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "standard": "*"
@@ -58,16 +50,7 @@
     "parser": "babel-eslint"
   },
   "engines": {
-    "node": ">= 4.4.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-3"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ]
+    "node": ">= 6.0.0"
   },
   "tonicExample": "var BotML = require('botml')\nvar bot = new BotML('https://raw.githubusercontent.com/BotML/botml-js/master/examples/hello.bot')\nbot.on('start', function () { console.log('Bot is ready!') })\nbot.start()"
 }
