@@ -4,7 +4,7 @@
 < hi
 
 # global activator
-> start
+> start who
 ~ [who]
 
 ~ who
@@ -12,18 +12,24 @@
 > ${first_name}
 < last name?
 > ${last_name}
-` `Dear ${first_name} ${last_name}`
-@ trigger('setvar', full_name=$)
+` context.variables.set('full_name', `Dear ${first_name} ${last_name}`)
 < Ok, I will call you "$full_name"\nand what is your email?
 > *{email}
-```
-function validateEmail (email) {
-  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email)
-}
-validateEmail('$email')
-```
-@ trigger('setvar', email_valid=$)
+` context.variables.set('email_valid', /^[^@]+@[^.]+\..{2,}$/i.test('$email'))
 < your email validity: $email_valid
+
+~ use-context
+> start using context
+< let's start\ngive me a number
+> #{number}
+` context.say('psst!')
+` context.say('here!')
+< did you just hear that?
+```
+const msg = `You just gave me the number $number`
+context.variables.set('custom_msg', msg)
+```
+< $custom_msg
 
 ~ catch-all
 > *
