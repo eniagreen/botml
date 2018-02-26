@@ -42,6 +42,14 @@ runDialogueTests('workflows', [{
         < step 5
         < step 6
       `
+    }, {
+      label: 'another referencing workflow',
+      expectedDialogue: `
+        > start workflow-a
+        < ok?
+        > ok
+        < b
+      `
     }
   ]
 }])
