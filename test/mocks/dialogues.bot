@@ -1,0 +1,21 @@
+! BOTML 1
+
+~ default
+< hi
+? [default-suggestions]
+
+= default-suggestions
+- yes
+- no
+- maybe
+
+> yes
+< you chose yes
+
+~ no
+> no
+< you chose no
+
+~ catch-all
+> *
+< you chose wrong
