@@ -29,6 +29,7 @@
   },
   "main": "lib/botml.js",
   "scripts": {
+    "lint": "eslint lib test",
     "test": "npx mocha test/**/*.test.js",
     "preautotest": "npm i -g mocha",
     "autotest": "npx supervisor -q -t -n exit -x mocha -- -b"
@@ -44,8 +45,11 @@
     "yargs": "^5.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "chai": "^3.5.0",
     "decache": "^4.4.0",
+    "eslint": "^4.18.1",
+    "eslint-config-standard": "^11.0.0",
     "mocha": "^2.4.5",
     "standard": "*",
     "supervisor": "^0.12.0"

@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "env" : {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "no-console": 1,
+    "no-template-curly-in-string": 1,
+    "no-unmodified-loop-condition": 0,
+    "object-curly-spacing": [2, "always"],
+    "semi": [2, "never"]
+  }
+}

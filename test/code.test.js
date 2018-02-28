@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-const { assert } = require('chai')
 const { runDialogueTests } = require('./base')
 
 runDialogueTests('code', [{

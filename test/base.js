@@ -1,6 +1,5 @@
 /* eslint-env mocha */
 const { assert } = require('chai')
-const { patternify, execPattern } = require('../lib/pattern.js')
 const decache = require('decache')
 // process.env.debug = false
 
