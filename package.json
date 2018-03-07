@@ -50,6 +50,7 @@
     "decache": "^4.4.0",
     "eslint": "^4.18.1",
     "eslint-config-standard": "^11.0.0",
+    "leakage": "^0.3.0",
     "mocha": "^2.4.5",
     "standard": "*",
     "supervisor": "^0.12.0"
