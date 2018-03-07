@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
 const { patternify, execPattern } = require('../lib/pattern.js')
+const Context = require('../lib/context.js')
 
 const INPUT_TEXT = 'I would like to buy 10 potatoes'
 
@@ -16,7 +17,7 @@ let tests = [
 describe('Regular expressions', function () {
   tests.forEach(test => {
     describe(`"${test.pattern}"`, () => {
-      let pat = patternify(test.pattern)
+      let pat = patternify(test.pattern, new Context())
       it(`should ${test.shouldMatch ? '' : 'not '}match`, () => {
         if (test.shouldMatch) {
           assert.match(INPUT_TEXT, pat)
