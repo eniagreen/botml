@@ -30,9 +30,9 @@
   "main": "lib/botml.js",
   "scripts": {
     "lint": "eslint lib test",
-    "test": "npx mocha test/**/*.test.js",
+    "test": "mocha test/**/*.test.js",
     "preautotest": "npm i -g mocha",
-    "autotest": "npx supervisor -q -t -n exit -x mocha -- -b"
+    "autotest": "supervisor -q -t -n exit -x mocha -- -b"
   },
   "preferGlobal": true,
   "bin": {
