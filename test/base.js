@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const { assert } = require('chai')
-const decache = require('decache')
+const Botml = require('../lib/botml')
 // process.env.debug = false
 
 function toArray (text) {
@@ -30,10 +30,7 @@ function runCustomTests (description, testCases, testFunction) {
       describe(testCase.file, () => {
         testCase.tests.forEach(test => {
           it(test.label, () => {
-            decache('../lib/botml')
-            const Botml = require('../lib/botml')
             let bot = new Botml(`./test/mocks/${testCase.file}`)
-            process.on('SIGINT', bot.stop)
             testFunction(test, bot)
           })
         })
