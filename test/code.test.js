@@ -27,6 +27,15 @@ runDialogueTests('code', [{
         < did you just hear that?
         < You just gave me the number 9
       `
+    },
+    {
+      label: 'run into triggers',
+      expectedDialogue: `
+        > go triggers go
+        < action 1 done
+        < action 2 done
+        < action 3 and 4 done
+      `
     }
   ]
 }])

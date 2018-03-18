@@ -1,0 +1,23 @@
+! BOTML 2
+
+> 1
+< 2
+
+> abc
+< def
+> ghi
+< jkl
+
+~ workflow
+> work
+< flow
+> work
+< flow again
+
+> 3
+< 4
+
+~ catch-all
+> *
+@ trigger('nothing')
+< catch
