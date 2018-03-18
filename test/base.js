@@ -13,7 +13,7 @@ function runDialogueTests (description, testCases) {
     bot.on('reply', reply => {
       dialogue.push(`< ${reply}`)
     })
-    if (test.autostart) bot.start()
+    if (test.autostart) bot.start(false)
     const expectedDialogue = toArray(test.expectedDialogue)
     const inputSequence = expectedDialogue.filter(l => l.match(/^>/)).map(l => l.replace(/^>\s*/, ''))
     inputSequence.forEach(input => {

@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const Botml = require('../lib/botml')
 const { iterate } = require('leakage')
 
