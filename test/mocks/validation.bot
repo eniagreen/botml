@@ -1,0 +1,33 @@
+! BOTML 2
+
+~ default
+< auto welcome
+
+~ workflow
+> start
+~ [workflow-steps]
+
+~ workflow-steps
+< let's start
+~ [ask-for-email]
+< end of workflow
+
+~ ask-for-email
+# ~ email-validation-checkpoint
+< your email please?
+> *{email}
+< you said: $
+```
+const email = '$email'
+const REGEX = /\w[\w\._\-+]*@\w[\w\-]*\.\w{2,}/
+if (!REGEX.test(email)) {
+  context.say('validation error')
+  // context.goto('ask-for-email')
+  // return '<STOP>'
+  context.parser.block = '~ [ask-for-email]\n< end of workflow'
+  return '<MANUAL>'
+} else {
+  context.say('validation OK')
+}
+```
+< thank you

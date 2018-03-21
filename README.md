@@ -29,6 +29,7 @@ you **need to get a commercial license**. To grab yours, you can contact us over
 - [Features](#features)
 - [Format](#format)
 - [Examples](#examples)
+- [Develop](#develop)
 - [Contribute](#contribute)
 - [License](#license)
 
@@ -446,6 +447,31 @@ See [an example](https://github.com/BotML/botml-js/blob/master/examples/nlp.js).
 ## Examples
 
 See the [`examples/`](https://github.com/BotML/botml-js/tree/master/examples) directory.
+
+## Develop
+
+Start the unit tests with:
+
+```sh
+npm test
+npm run autotest  # this is for continuous testing
+```
+
+Use the CLI for trying botml scripts from the console:
+
+```sh
+node lib/cli.js
+node lib/cli.js examples/echo.bot  # load script from a local file
+debug=true node lib/cli.js  # add logging verbosity
+```
+
+In CLI mode, a few special commands can help with debugging too:
+
+- /stats
+- /inspect
+- /block
+- /activators
+- /current
 
 ## Contribute
 

@@ -19,5 +19,4 @@
 
 ~ catch-all
 > *
-@ trigger('nothing')
 < catch
