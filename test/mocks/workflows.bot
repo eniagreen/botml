@@ -34,6 +34,15 @@
 ~ flow-3
 < step 5
 
+~ worfklow-a
+> start workflow-a
+< ok?
+> ok
+~ [workflow-b]
+
+~ workflow-b
+< B
+
 ~ catch-all
 > *
 < catch

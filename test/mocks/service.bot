@@ -1,0 +1,11 @@
+! BOTML 2
+@ geo_domain http://freegeoip.net/json/$domain
+
+> start
+` context.variables.set('domain', 'google.com')
+@ geo_domain()
+```
+const result = context.variables.get('service_geo_domain_result')
+context.variables.set('country', result.country_name)
+```
+< The domain $domain is located in $country

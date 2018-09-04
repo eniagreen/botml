@@ -1,7 +1,6 @@
 /* eslint-env mocha */
 const { assert } = require('chai')
-const { patternify, execPattern } = require('../lib/pattern.js')
-const decache = require('decache')
+const Botml = require('../lib/botml')
 // process.env.debug = false
 
 function toArray (text) {
@@ -14,7 +13,7 @@ function runDialogueTests (description, testCases) {
     bot.on('reply', reply => {
       dialogue.push(`< ${reply}`)
     })
-    if (test.autostart) bot.start()
+    if (test.autostart) bot.start(false)
     const expectedDialogue = toArray(test.expectedDialogue)
     const inputSequence = expectedDialogue.filter(l => l.match(/^>/)).map(l => l.replace(/^>\s*/, ''))
     inputSequence.forEach(input => {
@@ -31,10 +30,7 @@ function runCustomTests (description, testCases, testFunction) {
       describe(testCase.file, () => {
         testCase.tests.forEach(test => {
           it(test.label, () => {
-            decache('../lib/botml')
-            const Botml = require('../lib/botml')
             let bot = new Botml(`./test/mocks/${testCase.file}`)
-            process.on('SIGINT', bot.stop)
             testFunction(test, bot)
           })
         })
@@ -45,5 +41,6 @@ function runCustomTests (description, testCases, testFunction) {
 
 module.exports = {
   runDialogueTests,
-  runCustomTests
+  runCustomTests,
+  toArray
 }

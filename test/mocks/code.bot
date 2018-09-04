@@ -1,0 +1,48 @@
+! BOTML 2
+
+~ default
+< hi
+
+# global activator
+> start who
+~ [who]
+
+~ who
+< first name?
+> ${first_name}
+< last name?
+> ${last_name}
+` context.variables.set('full_name', `Dear ${first_name} ${last_name}`)
+< Ok, I will call you "$full_name"\nand what is your email?
+> *{email}
+` context.variables.set('email_valid', /^[^@]+@[^.]+\..{2,}/i.test('$email'))
+< your email validity: $email_valid
+# ` /^[^@]+@[^.]+\..{2,}/i.test('$email')
+# < your email validity: $
+
+~ use-context
+> start using context
+< let's start\ngive me a number
+> #{number}
+` context.say('psst!')
+` context.say('here!')
+< did you just hear that?
+```
+const msg = `You just gave me the number $number`
+context.variables.set('custom_msg', msg)
+```
+< $custom_msg
+
+~ triggers
+> go triggers go
+@ trigger('action1')
+< action 1 done
+@ trigger('action2')
+< action 2 done
+@ trigger('action3')
+@ trigger('action4')
+< action 3 and 4 done
+
+~ catch-all
+> *
+< catch $

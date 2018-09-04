@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "0.3.1",
+  "version": "2.0.0-alpha.16",
   "description": "BotML is a powerful markup language for modern chatbots.",
   "keywords": [
     "bot",
@@ -13,8 +13,8 @@
     "bot framework",
     "superscript"
   ],
-  "author": "Arnaud Leymet <arnaud.leymet@gmail.com>",
-  "license": "MIT",
+  "author": "Arnaud Leymet <arnaud@codename.co>",
+  "license": "UNLICENSED",
   "homepage": "https://codename.co/botml/",
   "repository": {
     "type": "git",
@@ -29,9 +29,12 @@
   },
   "main": "lib/botml.js",
   "scripts": {
-    "test": "npx mocha test/**/*.test.js",
+    "lint": "eslint lib test",
+    "test": "mocha test/**/*.test.js",
     "preautotest": "npm i -g mocha",
-    "autotest": "npx supervisor -q -t -n exit -x mocha -- -b"
+    "autotest": "supervisor -q -t -n exit -x mocha -- -b",
+    "precommit": "npm run lint && npm test",
+    "prepush": "npm run lint && npm test"
   },
   "preferGlobal": true,
   "bin": {
@@ -40,12 +43,18 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "machina": "^2.0.0",
+    "memwatch-next": "^0.3.0",
     "xregexp": "^3.1.1",
     "yargs": "^5.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "chai": "^3.5.0",
     "decache": "^4.4.0",
+    "eslint": "^4.18.1",
+    "eslint-config-standard": "^11.0.0",
+    "husky": "^0.14.3",
+    "leakage": "^0.3.0",
     "mocha": "^2.4.5",
     "standard": "*",
     "supervisor": "^0.12.0"

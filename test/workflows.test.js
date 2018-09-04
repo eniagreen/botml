@@ -1,6 +1,6 @@
 const { runDialogueTests } = require('./base')
 
-runDialogueTests('description', [{
+runDialogueTests('workflows', [{
   file: 'workflows.bot',
   tests: [
     {
@@ -41,6 +41,14 @@ runDialogueTests('description', [{
         < step 4
         < step 5
         < step 6
+      `
+    }, {
+      label: 'another referencing workflow',
+      expectedDialogue: `
+        > start workflow-a
+        < ok?
+        > ok
+        < b
       `
     }
   ]

@@ -2,6 +2,6 @@
 
 @ crypto_price https://min-api.cryptocompare.com/data/price?fsym=$coin&tsyms=EUR
 
-> #amount ${coin}
+> #{amount} ${coin}
 @ crypto_price().EUR
-< ~ $ €
+< ~ `$amount * $` €
