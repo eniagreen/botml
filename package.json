@@ -18,10 +18,10 @@
   "homepage": "https://codename.co/botml/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/botml/botml-js.git"
+    "url": "https://github.com/codename-co/botml.git"
   },
   "bugs": {
-    "url": "https://github.com/botml/botml-js/issues"
+    "url": "https://github.com/codename-co/botml/issues"
   },
   "directories": {
     "lib": "lib",
@@ -62,5 +62,5 @@
   "engines": {
     "node": ">= 6.0.0"
   },
-  "tonicExample": "var BotML = require('botml')\nvar bot = new BotML('https://raw.githubusercontent.com/BotML/botml-js/master/examples/hello.bot')\nbot.on('start', function () { console.log('Bot is ready!') })\nbot.start()"
+  "tonicExample": "var BotML = require('botml')\nvar bot = new BotML('https://raw.githubusercontent.com/codename-co/botml/master/examples/hello.bot')\nbot.on('start', function () { console.log('Bot is ready!') })\nbot.start()"
 }

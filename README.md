@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
 [![npm downloads](https://img.shields.io/npm/dt/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
-[![David](https://img.shields.io/david/BotML/botml-js.svg?style=flat-square)](https://david-dm.org/BotML/botml-js)
+[![David](https://img.shields.io/david/codename-co/botml.svg?style=flat-square)](https://david-dm.org/codename-co/botml)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 [![test](https://img.shields.io/badge/test-live-blue.svg?style=flat-square)](https://tonicdev.com/npm/botml)
 [![License](https://img.shields.io/npm/l/botml.svg?style=flat-square)](https://opensource.org/licenses/MIT)
@@ -15,7 +15,7 @@ Anyone (developers *and* non-developers) can use it to create and **teach bots
 how to behave**.
 Define the behavior of your chatbot using the right tiny bit of
 [formatting](#format) and engage the conversation in no time.
-See for yourself: a [calculator bot](https://github.com/BotML/botml-js/blob/master/examples/calculator.bot)
+See for yourself: a [calculator bot](https://github.com/codename-co/botml/blob/master/examples/calculator.bot)
 written in only two lines.
 
 **Note on commercial use:** The version 2.x of Botml is available for all to use with the exception of commercial use.
@@ -304,7 +304,7 @@ Example:
 Scripts can be used to evaluate code.
 
 The language of the code is dependent of the language used of the parser used.
-The `botml-js` parser is in Javascript, thus Javascript code can be used.
+The `botml` parser is in Javascript, thus Javascript code can be used.
 
 It *must* be inline within [dialogues](#dialogue) wrapped in `\``.
 
@@ -436,17 +436,17 @@ as Named Entities and Parts-of-Speech tagging.
 ```
 
 This feature is enabled through code integration.
-See [an example](https://github.com/BotML/botml-js/blob/master/examples/nlp.bot).
+See [an example](https://github.com/codename-co/botml/blob/master/examples/nlp.bot).
 
 #### Natural Language Processing
 
 <abbr title="Natural Language Processing">NLP</abbr> can be enabled through
 code integration.
-See [an example](https://github.com/BotML/botml-js/blob/master/examples/nlp.js).
+See [an example](https://github.com/codename-co/botml/blob/master/examples/nlp.js).
 
 ## Examples
 
-See the [`examples/`](https://github.com/BotML/botml-js/tree/master/examples) directory.
+See the [`examples/`](https://github.com/codename-co/botml/tree/master/examples) directory.
 
 ## Develop
 
@@ -475,11 +475,11 @@ In CLI mode, a few special commands can help with debugging too:
 
 ## Contribute
 
-Feel free to dive in! [Open an issue](https://github.com/BotML/botml-js/issues/new) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/codename-co/botml/issues/new) or submit PRs.
 
 ## License
 
-Botml 1.x is MIT (c) Codename
-Botml 2.x is Copyright All Rights Reserved
+Botml 2.x is Copyright All Rights Reserved.
+Prior Botml versions are under the MIT License.
 
-Refer to the [License][https://github.com/BotML/botml-js/blob/master/LICENSE.txt] for details.
+Refer to the [License][https://github.com/codename-co/botml/blob/master/LICENSE.txt] for details.
