@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 // Initialization
 const BotML = require('../lib/botml')
-let bot = new BotML('./examples/hello.bot')
+let bot = new BotML('./test/mocks/code.bot')
 
 // Capture all events
 // eslint-disable-next-line no-console

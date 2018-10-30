@@ -1,5 +1,5 @@
 ! BOTML 2
-@ geo_domain http://freegeoip.net/json/$domain
+@ geo_domain http://api.ipstack.com/$domain?access_key=f0585c75e5f853c1387d618ca967a4f6
 
 > start
 ` context.variables.set('domain', 'google.com')

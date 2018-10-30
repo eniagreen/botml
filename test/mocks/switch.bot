@@ -1,0 +1,47 @@
+! BOTML 2
+
+= mood
+- good
+- meh
+- great
+- ok
+
+# worflow for switch statement with word
+~ ask_howdy
+< hello stranger. how are you?
+~ listen_howdy
+< howdy?
+? [mood]
+---
+  > meh
+  < So you feel bad huh
+  ~ [listen_howdy]
+---
+  > good
+  < Oh, it is not bad ;)
+  ~ [rechecker]
+---
+  > ok
+  < Hmm, just ok? Okay then...
+---
+> great
+< Nice! Let's continue then...
+
+~ rechecker
+< Maybe it is more than good?
+> excelent
+< Much better!
+
+# worflow for switch statement with code
+~ ask_for_email
+> start email workflow
+~ listen_email
+< Your email please?
+> *{email}
+---
+  ` !/^.+@.+\..+/.test('$email')
+  < This email $email seems not legit!
+  ~ [listen_email]
+---
+< Cool. We'll reach you over at $email
+~ [ask_howdy]
