@@ -1,0 +1,33 @@
+! BOTML 2
+
+= vegetables
+- onion
+- tomato
+- carrot
+
+= fruits
+- apple
+- banana
+
+# List which contain references to another lists
+= products
+- [vegetables]
+- [fruits]
+
+= alcohol
+- wine
+- beer
+
+# List which contain references to another lists and original list item
+= drinks
+- [alcohol]
+- soda
+- water
+
+> start
+< What do you want to buy?
+> [products]
+< Nice! Choose a drink.
+? [drinks]
+> [drinks]
+< Great!
