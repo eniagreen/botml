@@ -6,6 +6,10 @@
 - great
 - ok
 
+= exceptions
+- fantastic
+- better than ever
+
 # worflow for switch statement with word
 ~ ask_howdy
 < hello stranger. how are you?
@@ -20,6 +24,9 @@
   > good
   < Oh, it is not bad ;)
   ~ [rechecker]
+---
+  > [exceptions]
+  < Seems you really cool guy!
 ---
   > ok
   < Hmm, just ok? Okay then...
