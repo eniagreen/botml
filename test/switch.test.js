@@ -70,7 +70,7 @@ runDialogueTests('switch', [{
         < Much better!
       `
     }, {
-      label: 'switch:code-->third-case-->prompt-->',
+      label: 'switch:code-->third-case-->prompt',
       autostart: true,
       expectedDialogue: `
         < hello stranger. how are you?
