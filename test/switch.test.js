@@ -4,7 +4,7 @@ runDialogueTests('switch', [{
   file: 'switch.bot',
   tests: [
     {
-      label: 'switch:word-->first-case-->checkpoint-->third-case',
+      label: 'switch:word-->first-case-->checkpoint-->fourth-case',
       autostart: true,
       expectedDialogue: `
         < hello stranger. how are you?
@@ -68,6 +68,15 @@ runDialogueTests('switch', [{
         < Maybe it is more than good?
         > excelent
         < Much better!
+      `
+    }, {
+      label: 'switch:code-->third-case-->prompt-->',
+      autostart: true,
+      expectedDialogue: `
+        < hello stranger. how are you?
+        < howdy?
+        > better than ever
+        < Seems you really cool guy!
       `
     }
   ]
