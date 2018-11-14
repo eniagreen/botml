@@ -1,0 +1,16 @@
+! BOTML 2
+
+~ ask_for_email
+> start email workflow
+~ listen_email
+< Your email please?
+> *{email}
+---
+  ` /forgot/.test('$email')
+  < Did you forget your email. Please return here when you recollect.
+---
+  ` !/^.+@.+\..+/.test('$email')
+  < This email $email seems not legit!
+  ~ [listen_email]
+---
+< Cool. We'll reach you over at $email
