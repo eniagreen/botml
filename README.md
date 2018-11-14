@@ -76,6 +76,7 @@ Basic features:
 - [Lists](#list)
 - [Prompts](#prompt)
 - [Workflows](#dialogue-workflow)
+- [Conditional branches](#conditional-branches)
 - [Variables](#variable)
 
 Advanced features:
@@ -198,7 +199,7 @@ with the `-` symbol.
 - LIST_ITEM
 ```
 
-Also it can has another list as item.
+A list item *can* reference yet another list.
 
 ```
 = LIST_NAME
@@ -400,11 +401,29 @@ activated and used by default when the user connects to the bot.
 > #{count} $items
 > #{count}
 < There you go.
-
 ```
 
-There is possibility to use two connected features *checkpoints* and *conditional branching* in workflows.
-*Checkpoint* is marker `~ CHECKPOINT_NAME` in workflow that give ability to return to some point in the current dialog. It runs from `~ [CHECKPOINT_NAME]` checkpoint trigger mark:
+#### Conditional branches
+
+Conditional branches are instructions that direct the bot to another part of the dialogue based on test conditions.
+
+Conditional breanches start with `---` and listen for all typed information then test it with all cases. Each case being separated by `---`:
+
+```
+---
+  > first input case
+  < first reply
+---
+  > second input case
+  < second reply
+---
+> last input case
+< last reply
+```
+
+Conditional branches work great with another feature labelled *checkpoint*.
+
+A checkpoint is a marker `~ CHECKPOINT_NAME` in the workflow, that makes returning to it at a later stage of the current dialog a breeze. It can be referred to with `~ [CHECKPOINT_NAME]`, which redirects the flow to the checkpoint mark:
 
 ```
 ~ ask_howdy
@@ -425,21 +444,7 @@ There is possibility to use two connected features *checkpoints* and *conditiona
 # > ...
 ```
 
-*Conditional branching* is feature 'switch/case' like in programming languages. It starts with `---` and listen for all typed information then tests it with all cases. Each case is separated with `---`: 
-
-```
----
- > first input case
- < first reply
----
- > second input case
- < second reply
----
-> last input case
-< last reply
-```
-
-With *checkpoints* and *lists* it could makes life more easier:
+Both *checkpoints* and *lists* make working with conditional branches something really interesting:
 
 ```
 = mood
@@ -477,11 +482,11 @@ With *checkpoints* and *lists* it could makes life more easier:
 
 ~ rechecker
 < Maybe it is more than good?
-> excelent
+> excellent
 < Much better!
 ```
 
-There is ability to use not equal `!` for *conditional branching*:
+It is also possible to use the "not equal" sign `!` in *conditional branching*:
 
 ```
 = mood
@@ -513,7 +518,7 @@ There is ability to use not equal `!` for *conditional branching*:
 < Hmm... bye then...
 ```
 
-*Conditional branching* includes working with script too. Script result should be `true` or `false`. If all test are `false` *conditional branching* will use last case as default(with script): 
+*Conditional branching* also work well with scripts as long as a value is returned. If a script returns the value `true`, the corresponding branch will be activated. If alls test are `false` *conditional branching* will skip all branches and continue with the current workflow: 
 
 ```
 ~ ask_for_email
