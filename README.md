@@ -439,7 +439,7 @@ There is possibility to use two connected features *checkpoints* and *conditiona
 < last reply
 ```
 
-It should has at least 2 cases. With *checkpoints* and *lists* it could makes life more easier. :
+With *checkpoints* and *lists* it could makes life more easier. :
 
 ```
 = mood
