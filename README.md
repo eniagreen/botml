@@ -198,6 +198,14 @@ with the `-` symbol.
 - LIST_ITEM
 ```
 
+Also it can has another list as item.
+
+```
+= LIST_NAME
+- LIST_ITEM
+- [ANOTHER_LIST]
+```
+
 It *can* be referenced in a `>` line for referencing multiple variants of
 an input pattern.
 
@@ -213,10 +221,16 @@ Referencing a list is done by wrapping the list name with brackets:
 Example:
 
 ```
+= citrus
+- oranges
+- lemons
+- grapefruits
+
 = random_fruit
 - apples
 - apricots
 - bananas
+- [citrus]
 
 > I like [random_fruit]
 < Oh. I prefer [random_fruit].
@@ -225,9 +239,18 @@ Example:
 #  > I like apples
 #  > I like apricots
 #  > I like bananas
+#  > I like oranges
+#  > I like lemons
+#  > I like grapefruits
 #  < Oh. I prefer apples
 #  < Oh. I prefer apricots
 #  < Oh. I prefer bananas
+#  < Oh. I prefer oranges
+#  < Oh. I prefer lemons
+#  < Oh. I prefer grapefruits
+
+> I like [random_fruit]
+< Oh. I prefer [random_fruit].
 ```
 
 Lists can also be used in [prompts](#prompt).
@@ -377,6 +400,133 @@ activated and used by default when the user connects to the bot.
 > #{count} $items
 > #{count}
 < There you go.
+
+```
+
+There is possibility to use two connected features *checkpoints* and *conditional branching* in workflows.
+*Checkpoint* is marker `~ CHECKPOINT_NAME` in workflow that give ability to return to some point in the current dialog. It runs from `~ [CHECKPOINT_NAME]` checkpoint trigger mark:
+
+```
+~ ask_howdy
+< Hello stranger. How are you?
+~ checkpoint_name
+< howdy?
+> meh
+< So you feel bad huh
+~ [checkpoint_name]
+
+# Example of workflow working:
+
+# < Hello stranger. How are you?
+# < Howdy?
+# > meh
+# < So you feel bad huh
+# < Howdy?
+# > ...
+```
+
+*Conditional branching* is feature 'switch/case' like in programming languages. It starts with `---` and listen for all typed information then tests it with all cases. Each case is separated with `---`: 
+
+```
+---
+ > first input case
+ < first reply
+---
+ > second input case
+ < second reply
+---
+> last input case
+< last reply
+```
+
+It should has at least 2 cases. With *checkpoints* and *lists* it could makes life more easier. :
+
+```
+= mood
+- good
+- meh
+- great
+- ok
+
+= exceptions
+- fantastic
+- better than ever
+
+~ ask_howdy
+< hello stranger. how are you?
+~ listen_howdy
+< howdy?
+? [mood]
+---
+  > meh
+  < So you feel bad huh
+  ~ [listen_howdy]
+---
+  > good
+  < Oh, it is not bad ;)
+  ~ [rechecker]
+---
+  > [exceptions]
+  < Seems you really cool guy!
+---
+  > ok
+  < Hmm, just ok? Okay then...
+---
+> great
+< Nice! Let's continue then...
+
+~ rechecker
+< Maybe it is more than good?
+> excelent
+< Much better!
+```
+
+There is ability to use not equal `!` for *conditional branching*:
+
+```
+= mood
+- [bad_mood]
+- [good_mood]
+
+= bad_mood
+- meh
+- bad
+
+= good_mood
+- great
+- ok
+
+~ ask_howdy
+< hello stranger. how are you?
+~ listen_howdy
+< howdy?
+? [mood]
+---
+  > ![mood]
+  < I asked you how you are ; please let's start over with another answer?
+  ~ [listen_howdy]
+---
+  > [good_mood]
+  < Oh, it is awesome ;)
+---
+> [bad_mood]
+< Hmm... bye then...
+```
+
+*Conditional branching* includes working with script too. Script result should be `true` or `false`. If all test are `false` *conditional branching* will use last case as default(with script): 
+
+```
+~ ask_for_email
+> start email workflow
+~ listen_email
+< Your email please?
+> *{email}
+---
+  ` !/^.+@.+\..+/.test('$email')
+  < This email $email seems not legit!
+  ~ [listen_email]
+---
+< Cool. We'll reach you over at $email
 ```
 
 #### Trigger
