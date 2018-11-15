@@ -7,7 +7,10 @@ runDialogueTests('switch', [{
       label: 'switch:word-->first-case-->checkpoint-->fourth-case',
       autostart: true,
       expectedDialogue: `
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > meh
         < So you feel bad huh
@@ -19,22 +22,30 @@ runDialogueTests('switch', [{
       label: 'switch:word-->second-case-->workflow',
       autostart: true,
       expectedDialogue: `
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > good
         < Oh, it is not bad ;)
         < Maybe it is more than good?
         > excelent
         < Much better!
+        < Bye my friend!
       `
     }, {
       label: 'switch:word-->default-case',
       autostart: true,
       expectedDialogue: `
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > great
         < Nice! Let's continue then...
+        < Bye my friend!
       `
     }, {
       label: 'switch:code-->default-case-->workflow-->switch:word-->default-case',
@@ -43,10 +54,14 @@ runDialogueTests('switch', [{
         < Your email please?
         > type@codename.co
         < Cool. We'll reach you over at type@codename.co
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > great
         < Nice! Let's continue then...
+        < Bye my friend!
       `
     }, {
       label: 'switch:code-->first-case-->checkpoint-->default-case-->workflow-->switch:word-->first-case-->checkpoint-->second-case-->workflow',
@@ -58,7 +73,10 @@ runDialogueTests('switch', [{
         < Your email please?
         > type@codename.co
         < Cool. We'll reach you over at type@codename.co
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > meh
         < So you feel bad huh
@@ -68,12 +86,16 @@ runDialogueTests('switch', [{
         < Maybe it is more than good?
         > excelent
         < Much better!
+        < Bye my friend!
       `
     }, {
       label: 'switch:code-->third-case-->prompt-->',
       autostart: true,
       expectedDialogue: `
-        < hello stranger. how are you?
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
         < howdy?
         > better than ever
         < Seems you really cool guy!

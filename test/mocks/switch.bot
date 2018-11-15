@@ -10,9 +10,16 @@
 - fantastic
 - better than ever
 
+~ hi_workflow
+< Hi, what is your name?
+> *{name}
+< Nice to meet you $name
+~ [ask_howdy]
+< Bye my friend!
+
 # worflow for switch statement with word
 ~ ask_howdy
-< hello stranger. how are you?
+< how are you?
 ~ listen_howdy
 < howdy?
 ? [mood]
@@ -51,4 +58,4 @@
   ~ [listen_email]
 ---
 < Cool. We'll reach you over at $email
-~ [ask_howdy]
+~ [hi_workflow]
