@@ -1,7 +1,7 @@
 {
   "name": "botml",
-  "version": "2.0.3",
-  "description": "BotML is a powerful markup language for modern chatbots.",
+  "version": "2.0.4",
+  "description": "Botml is a powerful markup language for modern chatbots.",
   "keywords": [
     "bot",
     "chatbot",
@@ -62,5 +62,5 @@
   "engines": {
     "node": ">= 6.0.0"
   },
-  "tonicExample": "var BotML = require('botml')\nvar bot = new BotML('https://raw.githubusercontent.com/codename-co/botml/master/examples/hello.bot')\nbot.on('start', function () { console.log('Bot is ready!') })\nbot.start()"
+  "runkitExampleFilename": "./examples/runkit.js"
 }
