@@ -1,4 +1,4 @@
-# BotML
+# Botml
 
 [![npm](https://img.shields.io/npm/v/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
 [![npm downloads](https://img.shields.io/npm/dt/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
@@ -7,7 +7,7 @@
 [![test](https://img.shields.io/badge/test-live-blue.svg?style=flat-square)](https://tonicdev.com/npm/botml)
 [![License](https://img.shields.io/npm/l/botml.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-[<abbr title="Bot Markup Language">BotML</abbr>](https://codename.co/botml/) is
+[<abbr title="Bot Markup Language">Botml</abbr>](https://codename.co/botml/) is
 a declarative and powerful **markup language for designing modern chatbots**
 (a.k.a. conversational bots).
 
@@ -59,9 +59,9 @@ $ bot
 or use it in your code:
 
 ```js
-var BotML = require('botml');
-var bot = new BotML('alice.bot');
-bot.start();
+const Botml = require('botml')
+const bot = new Botml('alice.bot')
+bot.start()
 ```
 
 ## Features
@@ -113,7 +113,7 @@ The most basic `.bot` file would be:
 
 #### Specification
 
-The specification line is needed to tell BotML that it can load the file.
+The specification line is needed to tell Botml that it can load the file.
 
 This *must* be the first line of any `.bot` file.
 
