@@ -49,12 +49,12 @@
 # worflow for switch statement with code
 ~ ask_for_email
 > start email workflow
-< Your email please?
 ~ listen_email
+< Your email please?
 > *{email}
 ---
   ` !/^.+@.+\..+/.test('$email')
-  < This email $email seems not legit! Please type it again...
+  < This email $email seems not legit!
   ~ [listen_email]
 ---
 < Cool. We'll reach you over at $email
