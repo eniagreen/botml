@@ -1,7 +1,7 @@
 {
   "name": "botml",
   "version": "2.0.4",
-  "description": "Botml is a powerful markup language for modern chatbots.",
+  "description": "Botml is a powerful markup language for designing modern chatbots.",
   "keywords": [
     "bot",
     "chatbot",
@@ -34,28 +34,33 @@
     "preautotest": "npm i -g mocha",
     "autotest": "supervisor -q -t -n exit -x mocha -- -b",
     "precommit": "npm run lint && npm test",
-    "prepush": "npm run lint && npm test"
+    "prepush": "npm run lint && npm test",
+    "build": "parcel build lib/browser.js --public-url ./ --target browser -o botml --no-minify"
   },
   "preferGlobal": true,
   "bin": {
     "bot": "lib/cli.js"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
-    "machina": "^2.0.0",
+    "chalk": "^2.4.1",
+    "machina": "^4.0.2",
     "memwatch-next": "^0.3.0",
-    "xregexp": "^3.1.1",
+    "xregexp": "^4.2.0",
     "yargs": "^5.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "chai": "^3.5.0",
     "decache": "^4.4.0",
-    "eslint": "^4.18.1",
+    "eslint": "^5.9.0",
     "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^0.14.3",
     "leakage": "^0.3.0",
     "mocha": "^2.4.5",
+    "parcel-bundler": "^1.10.3",
     "standard": "*",
     "supervisor": "^0.12.0"
   },

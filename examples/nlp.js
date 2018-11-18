@@ -10,8 +10,8 @@ try {
 const chalk = require('chalk')
 
 // Initialization
-const BotML = require('../lib/botml')
-let bot = new BotML()
+const Botml = require('../lib/botml')
+let bot = new Botml()
 
 // NLP
 const pos = require('pos')
