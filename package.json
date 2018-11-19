@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "description": "Botml is a powerful markup language for designing modern chatbots.",
   "keywords": [
     "bot",
@@ -23,6 +23,11 @@
   "bugs": {
     "url": "https://github.com/codename-co/botml/issues"
   },
+  "files": [
+    "dist",
+    "examples",
+    "lib"
+  ],
   "directories": {
     "lib": "lib",
     "example": "examples"
@@ -35,7 +40,7 @@
     "autotest": "supervisor -q -t -n exit -x mocha -- -b",
     "precommit": "npm run lint && npm test",
     "prepush": "npm run lint && npm test",
-    "build": "parcel build lib/browser.js --public-url ./ --target browser -o botml --no-minify"
+    "build": "parcel build lib/browser.js --public-url ./ --target browser -o botml"
   },
   "preferGlobal": true,
   "bin": {
