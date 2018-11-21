@@ -32,7 +32,6 @@ runDialogueTests('switch', [{
         < Maybe it is more than good?
         > excelent
         < Much better!
-        < Bye my friend!
       `
     }, {
       label: 'switch:word-->default-case',
@@ -86,7 +85,6 @@ runDialogueTests('switch', [{
         < Maybe it is more than good?
         > excelent
         < Much better!
-        < Bye my friend!
       `
     }, {
       label: 'switch:code-->third-case-->prompt',
