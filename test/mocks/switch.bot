@@ -5,6 +5,7 @@
 - meh
 - great
 - ok
+- brilliant
 
 = exceptions
 - fantastic
@@ -38,7 +39,11 @@
   > ok
   < Hmm, just ok? Okay then...
 ---
+  > brilliant
+  ~ [jump_to]
+---
 > great
+~ jump_to
 < Nice! Let's continue then...
 
 ~ rechecker
