@@ -89,7 +89,7 @@ runDialogueTests('switch', [{
         < Bye my friend!
       `
     }, {
-      label: 'switch:code-->third-case-->prompt-->',
+      label: 'switch:code-->third-case-->prompt',
       autostart: true,
       expectedDialogue: `
         < Hi, what is your name?
@@ -99,6 +99,19 @@ runDialogueTests('switch', [{
         < howdy?
         > better than ever
         < Seems you really cool guy!
+      `
+    }, {
+      label: 'switch:code-->fifth-case-->jump-to-->default-case',
+      autostart: true,
+      expectedDialogue: `
+        < Hi, what is your name?
+        > john
+        < Nice to meet you john
+        < How are you?
+        < howdy?
+        > brilliant
+        < Nice! Let's continue then...
+        < Bye my friend!
       `
     }
   ]
