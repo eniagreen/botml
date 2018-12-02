@@ -43,7 +43,7 @@ bot.addPatternCapability(
 bot.on('*', (event, ...args) => console.log(chalk.dim('Received event'), event, chalk.dim(JSON.stringify(args))))
 
 // Load & start the chatbot
-bot.load(['./examples/nlp.bot'])
+bot.load('./examples/nlp.bot')
 bot.start()
 
 // Bonus: gracefull terminate the bot on Ctrl-C

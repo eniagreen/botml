@@ -543,7 +543,6 @@ There are two types of events: standard events and custom events.
 **Standard events** are as follow:
 
 - `'start'`
-- `'patterns:set:NAME'` with one String parameter: value
 - `'patterns:set'` with two String parameters: pattern name & value
 - `'match'` with two String parameters: label, pattern
 - `'current-dialogue-start'` with one String parameter: dialogueLabel
@@ -551,7 +550,6 @@ There are two types of events: standard events and custom events.
 - `'smart-replies'` with one Array parameter: replies
 - `'current-dialogue-end'` with one String parameter: dialogueLabel
 - `'variable:set'` with two String parameters: variable name & value
-- `'variable:set:NAME'` with one String parameter: value
 - `'quit'`
 - `'*'` catches *all* the standard and custom events
 

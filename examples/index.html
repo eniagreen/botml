@@ -1,0 +1,44 @@
+<meta charset='utf-8'>
+<title>Botml examples</title>
+<script src='../dist/botml.js'></script>
+<link rel='stylesheet' src='https://unpkg.com/bulma@0.7.2/css/bulma.min.css'>
+<script>
+async function fetchScript (filename) {
+  return await (await fetch(`./${filename}.bot`)).text()
+}
+const EXAMPLES = ['bonjour', 'calculator', 'crypto', 'echo', 'expressions', 'hello', 'knock', 'service', 'workflow']
+</script>
+<script>
+(async () => {
+  // const examples = EXAMPLES
+  //   .map(async filename => {
+  //     const script = await fetchScript(filename)
+  //     return { filename, script }
+  //   }).map(async p => await p)
+  // examples.forEach(example => {
+  //     document.write(`<p>${example.filename}<br>${example.script}</p>`)
+  //   })
+
+  const bot = new Botml()
+  bot.on('reply', (msg) => console.log('<', msg))
+  bot.on('smart-replies', (options) => console.log('?', options.join(', ')))
+  // bot.on('*', (event, ...args) => console.debug(event, ...args))
+  const script = await fetchScript('workflow')
+  bot.parse(script)
+  bot.start()
+
+  // workflow
+  bot.send('ok')
+  bot.send('I\'m 20 years old')
+  bot.send('I was born in Kentucky')
+  bot.send('me@example.org')
+
+  // crypto
+  // bot.send('35 ETH')
+  // bot.send('2000 XRP')
+
+  // calculator
+  // bot.send('1')
+  // bot.send('5 / 2')
+})()
+</script>

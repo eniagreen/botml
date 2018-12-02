@@ -18,7 +18,7 @@
 
 > [hello]
 < [hello]. What's your name?
-> My name is *{name}
+> name is *{name}
 > I'm *{name}
 > *{name}
 < Nice to meet you $name!
