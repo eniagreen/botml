@@ -59,9 +59,24 @@ $ bot
 or use it in your code:
 
 ```js
-const Botml = require('botml')
+const Botml = require('botml/lib/botml')
 const bot = new Botml('alice.bot')
 bot.start()
+```
+
+or even load it statically in your browser:
+
+```html
+<script src='https://unpkg.com/botml'></script>
+<script>
+const bot = new Botml()
+// either load an URI:
+// bot.load('https://raw.githubusercontent.com/codename-co/botml/master/examples/hello.bot')
+// or load the script directly:
+bot.parse('> *\n< yes?\n')
+bot.start()
+bot.send('hey')
+</script>
 ```
 
 ## Features
