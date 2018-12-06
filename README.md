@@ -347,7 +347,10 @@ The `botml` parser is in Javascript, thus Javascript code can be used.
 
 It *must* be inline within [dialogues](#dialogue) wrapped in `\``.
 
-It *can* access named [variables](#variable).
+It *can* access named [variables](#variable):
+
+- either from context: `context.variables.get('price')`
+- or with its named variable shorter form: `$price`
 
 Example:
 
