@@ -51,7 +51,6 @@
     "chalk": "^2.4.1",
     "isomorphic-unfetch": "^3.0.0",
     "machina": "^4.0.2",
-    "memwatch-next": "^0.3.0",
     "xregexp": "^4.2.0",
     "yargs": "^5.0.0"
   },
@@ -69,7 +68,6 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^0.14.3",
-    "leakage": "^0.3.0",
     "mocha": "^2.4.5",
     "parcel-bundler": "^1.10.3",
     "standard": "*",

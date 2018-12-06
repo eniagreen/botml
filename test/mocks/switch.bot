@@ -58,7 +58,7 @@
 < Your email please?
 > *{email}
 ---
-  ` !/^.+@.+\..+/.test('$email')
+  ` !/^.+@.+\..+/.test($email)
   < This email $email seems not legit!
   ~ [listen_email]
 ---

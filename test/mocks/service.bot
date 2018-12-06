@@ -1,11 +1,12 @@
 ! BOTML 2
+
 @ geo_domain http://api.ipstack.com/$domain?access_key=f0585c75e5f853c1387d618ca967a4f6
 
 > start
 ` context.variables.set('domain', 'google.com')
 @ geo_domain()
 ```
-const result = context.variables.get('service_geo_domain_result')
+const result = $service_geo_domain_result
 context.variables.set('country', result.country_name)
 ```
 < The domain $domain is located in $country

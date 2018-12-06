@@ -6,10 +6,10 @@
 < Your email please?
 > *{email}
 ---
-  ` /forgot/.test('$email')
+  ` /forgot/.test($email)
   < Did you forget your email. Please return here when you recollect.
 ---
-  ` !/^.+@.+\..+/.test('$email')
+  ` !/^.+@.+\..+/.test($email)
   < This email $email seems not legit!
   ~ [listen_email]
 ---

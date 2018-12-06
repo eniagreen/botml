@@ -12,12 +12,12 @@
 > ${first_name}
 < last name?
 > ${last_name}
-` context.variables.set('full_name', `Dear ${first_name} ${last_name}`)
+` context.variables.set('full_name', `Dear ${$first_name} ${$last_name}`)
 < Ok, I will call you "$full_name"\nand what is your email?
 > *{email}
-` context.variables.set('email_valid', /^[^@]+@[^.]+\..{2,}/i.test('$email'))
+` context.variables.set('email_valid', /^[^@]+@[^.]+\..{2,}/i.test($email))
 < your email validity: $email_valid
-# ` /^[^@]+@[^.]+\..{2,}/i.test('$email')
+# ` /^[^@]+@[^.]+\..{2,}/i.test($email)
 # < your email validity: $
 
 ~ use-context
@@ -28,7 +28,7 @@
 ` context.say('here!')
 < did you just hear that?
 ```
-const msg = `You just gave me the number $number`
+const msg = `You just gave me the number ${$number}`
 context.variables.set('custom_msg', msg)
 ```
 < $custom_msg

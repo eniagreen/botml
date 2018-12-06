@@ -18,7 +18,7 @@
 > *{email}
 < you said: $
 ```
-const email = '$email'
+const email = $email
 const REGEX = /\w[\w\._\-+]*@\w[\w\-]*\.\w{2,}/
 if (!REGEX.test(email)) {
   context.say('validation error')
