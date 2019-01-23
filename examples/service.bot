@@ -34,12 +34,12 @@
 
 # 2a. The domain geolocation service
 
-@ geo_domain http://freegeoip.net/json/$
+@ geo_domain http://api.ipstack.com/$?access_key=f0585c75e5f853c1387d618ca967a4f6
 
 > geolocate a web domain
 < For which domain?
 > *{domain}
-@ geo_domain($domain).city
+@ geo_domain($domain).country_name
 < It is running from $.
 
 # 2b. The ip address service
