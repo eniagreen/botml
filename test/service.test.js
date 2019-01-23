@@ -6,8 +6,10 @@ runDialogueTests('service', [{
     {
       label: 'call a service and exploit its result',
       expectedDialogue: `
-        > start
-        < The domain google.com is located in United States
+        > geolocate a web domain
+        < For which domain?
+        > google.com
+        < It is running from United States
       `
     }
   ]

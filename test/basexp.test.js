@@ -19,7 +19,7 @@ let tests = [
   { pattern: 'buy # potatoes', shouldMatch: true, captures: { '$1': '10' } },
   // named variables
   { pattern: 'I would $verb to', shouldMatch: true, captures: { '$1': 'like', verb: 'like' } },
-  { pattern: 'I would ${verb} to', shouldMatch: true, captures: { '$1': 'like', verb: 'like' } },
+  { pattern: 'I would ${verb} to', shouldMatch: true, captures: { '$1': 'like', verb: 'like' } }, // eslint-disable-line no-template-curly-in-string
   // captures
   { pattern: 'I * to * # *{what}', shouldMatch: true, captures: { '$1': 'would like', '$2': 'buy', '$3': '10', '$4': 'potatoes', what: 'potatoes' } }
 ]
