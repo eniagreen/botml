@@ -1,0 +1,14 @@
+language: node_js
+deploy:
+  provider: npm
+  email: $EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    branch: master
+notifications:
+  email:
+    recipients:
+    - type@codenaem.co
+    - arnaud@codenaem.co
+    on_success: change
+    on_failure: always
