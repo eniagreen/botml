@@ -14,7 +14,7 @@ deploy:
 notifications:
   email:
     recipients:
-    - type@codenaem.co
+    - type@codename.co
     - arnaud@codenaem.co
     on_success: change
     on_failure: always
