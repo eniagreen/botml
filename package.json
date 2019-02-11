@@ -41,8 +41,7 @@
     "autotest": "supervisor -q -t -n exit -x mocha -- -b",
     "precommit": "npm run lint && npm test",
     "prepush": "npm run lint && npm test",
-    "build": "parcel build lib/botml.js --public-url ./ --target browser --global Botml -o botml",
-    "prepublish": "yarn build"
+    "build": "parcel build lib/botml.js --public-url ./ --target browser --global Botml -o botml"
   },
   "preferGlobal": true,
   "bin": {
