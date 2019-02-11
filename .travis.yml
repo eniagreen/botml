@@ -15,6 +15,6 @@ notifications:
   email:
     recipients:
     - type@codename.co
-    - arnaud@codenaem.co
+    - arnaud@codename.co
     on_success: change
     on_failure: always
