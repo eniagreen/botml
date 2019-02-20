@@ -30,7 +30,7 @@ runDialogueTests('switch', [{
         > good
         < Oh, it is not bad ;)
         < Maybe it is more than good?
-        > excelent
+        > excellent
         < Much better!
       `
     }, {
@@ -83,7 +83,7 @@ runDialogueTests('switch', [{
         > good
         < Oh, it is not bad ;)
         < Maybe it is more than good?
-        > excelent
+        > excellent
         < Much better!
       `
     }, {
