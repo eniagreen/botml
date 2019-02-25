@@ -1,0 +1,48 @@
+! BOTML 2
+
+~ workflow
+< Hi there!
+  How are you?
+  😃
+~ ask-again
+? [options]
+---
+  > okay
+  < Could you tell me...
+    What's stopping you to feel great?
+  ~ [explanations]
+---
+  > good
+  < Ohhh...
+    This is great
+    😉
+---
+  > bad
+  < But Why?
+  ~ [jumpto]
+---
+> *
+~ jumpto
+< I don't understand
+  🤔
+~ [ask-again]
+
+~ explanations
+< Your mood?
+  You didn't get enough sleep?
+  Are you ill?
+? [reasons]
+> [reasons]
+< Okay then
+  Bye bye 
+  🙂
+
+= reasons
+- mood
+- i am ill
+- have to more sleeping
+
+= options
+- okay
+- bad
+- good
