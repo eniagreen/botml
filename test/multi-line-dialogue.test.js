@@ -9,7 +9,7 @@ runDialogueTests('multi-line-dialogue', [{
       expectedDialogue: `
         < Hi there!\\nHow are you?\\n😃
         > okay
-        < Could you tell me\\n  What's stopping you to feel great?
+        < Could you tell me\\nWhat's stopping you to feel great?
         < Your mood?\\nYou didn't get enough sleep?\\nAre you ill?
         > have to more sleeping
         < Okay then\\nBye bye \\n🙂
@@ -21,7 +21,7 @@ runDialogueTests('multi-line-dialogue', [{
       expectedDialogue: `
         < Hi there!\\nHow are you?\\n😃
         > good
-        < Ohhh\\n  This is great\\n  😉
+        < Ohhh\\nThis is great\\n😉
       `
     },
     {
@@ -33,7 +33,7 @@ runDialogueTests('multi-line-dialogue', [{
         < But Why?
         < I don't understand\\n🤔
         > good
-        < Ohhh\\n  This is great\\n  😉
+        < Ohhh\\nThis is great\\n😉
       `
     },
     {
@@ -44,7 +44,7 @@ runDialogueTests('multi-line-dialogue', [{
         > yummy
         < I don't understand\\n🤔
         > good
-        < Ohhh\\n  This is great\\n  😉
+        < Ohhh\\nThis is great\\n😉
       `
     }
   ]
