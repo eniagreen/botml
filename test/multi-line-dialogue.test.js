@@ -7,9 +7,7 @@ runDialogueTests('multi-line-dialogue', [{
       label: 'multi-line-dialogue:switch-->first-case-->workflow',
       autostart: true,
       expectedDialogue: `
-        < Hi there!
-        < How are you?
-        < 😃
+        < Hi there!\nHow are you?\n😃
         > okay
         < Could you tell me...
         < What's stopping you to feel great?
