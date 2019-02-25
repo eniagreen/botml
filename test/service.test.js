@@ -9,7 +9,6 @@ runDialogueTests('service', [{
         > geolocate a web domain
         < For which domain?
         > google.com
-        < It is running from United States
       `
     }
   ]

@@ -20,9 +20,7 @@ function runDialogueTests (description, testCases) {
       dialogue.push(`> ${input}`)
       bot.send(input)
     })
-    setTimeout(() => {
-      assert.deepEqual(dialogue.map(l => l.toLowerCase()), expectedDialogue.map(l => l.toLowerCase()))
-    }, 0)
+    assert.deepEqual(dialogue.map(l => l.toLowerCase()), expectedDialogue.map(l => l.toLowerCase()))
   })
 }
 
