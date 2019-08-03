@@ -19,10 +19,6 @@ Define the behavior of your chatbot using the right tiny bit of
 See for yourself: a [calculator bot](https://github.com/codename-co/botml/blob/master/examples/calculator.bot)
 written in only two lines.
 
-**Note on commercial use:** The version 2.x of Botml is available for all to use with the exception of commercial use.
-Any use of this software that generates revenue directly or indirectly, and/or makes your brand/company benefit from this software,
-you **need to get a commercial license**. To grab yours, you can contact us over at https://codename.co.
-
 ## Table of Contents
 
 - [Install](#install)

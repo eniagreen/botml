@@ -1,24 +1,6 @@
-Botml is dual-licensed:
-- Botml 2.x is Copyright, All Rights Reserved.
-- Botml 1.x is licensed under the MIT License.
-
-
-For Botml 2.x:
-===================================================================
-
-Commercial License
-
-This Software is free to use for any non-commercial project.
-For any commercial use of this Software, we propose licensing options.
-You can learn more about these options by contacting us: https://codename.co/
-
-
-For earlier Botml versions:
-===================================================================
-
 MIT License
 
-Copyright (c) 2016 - 2018 CODENAME SAS [https://codename.co]
+Copyright (c) 2016 - 2019 CODENAME SAS [https://codename.co]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

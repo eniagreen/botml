@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "2.2.6",
+  "version": "3.0.0",
   "description": "Botml is a powerful markup language for designing modern chatbots.",
   "keywords": [
     "bot",
@@ -14,7 +14,7 @@
     "superscript"
   ],
   "author": "Arnaud Leymet <arnaud@codename.co>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "homepage": "https://codename.co/botml/",
   "repository": {
     "type": "git",
@@ -68,7 +68,7 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^0.14.3",
-    "mocha": "^2.4.5",
+    "mocha": "^6.2.0",
     "parcel-bundler": "^1.10.3",
     "standard": "*",
     "supervisor": "^0.12.0"
