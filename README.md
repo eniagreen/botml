@@ -422,7 +422,7 @@ activated and used by default when the user connects to the bot.
 
 Conditional branches are instructions that direct the bot to another part of the dialogue based on test conditions.
 
-Conditional breanches start with `---` and listen for all typed information then test it with all cases. Each case being separated by `---`:
+Conditional branches start with `---` and listen for all typed information then test it with all cases. Each case being separated by `---`:
 
 ```
 ---
@@ -533,7 +533,7 @@ It is also possible to use the "not equal" sign `!` in *conditional branching*:
 < Hmm... bye then...
 ```
 
-*Conditional branching* also work well with scripts as long as a value is returned. If a script returns the value `true`, the corresponding branch will be activated. If alls test are `false` *conditional branching* will skip all branches and continue with the current workflow: 
+*Conditional branching* also work well with scripts as long as a value is returned. If a script returns the value `true`, the corresponding branch will be activated. If all tests are `false` *conditional branching* will skip all branches and continue with the current workflow: 
 
 ```
 ~ ask_for_email
