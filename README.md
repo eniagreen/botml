@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/botml-logo.svg" width="160" height="160" alt="Botml" />
+  <img src="docs/botml-logo.png" width="160" height="160" alt="Botml" />
 </p>
 
 <h3 align="center">
