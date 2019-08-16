@@ -1,12 +1,39 @@
-# ⵄ Botml
+<p align="center">
+  <img src="docs/botml-logo.svg" width="160" height="160" alt="Botml" />
+</p>
 
-[![npm](https://img.shields.io/npm/v/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
-[![npm downloads](https://img.shields.io/npm/dt/botml.svg?style=flat-square)](https://www.npmjs.com/package/botml)
-[![David](https://img.shields.io/david/codename-co/botml.svg?style=flat-square)](https://david-dm.org/codename-co/botml)
-[![travis](https://img.shields.io/travis/codename-co/botml.svg?style=flat-square)](https://travis-ci.org/codename-co/botml)
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
-[![test](https://img.shields.io/badge/test-live-blue.svg?style=flat-square)](https://tonicdev.com/npm/botml)
-[![License](https://img.shields.io/npm/l/botml.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+<h3 align="center">
+  An open source and production-ready markup language<br>
+  for designing modern chatbots.
+</h3>
+
+<br>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/botml" target="_blank">
+    <img src="https://img.shields.io/npm/v/botml.svg?style=flat-square" alt="npm" />
+  </a>
+  <a href="https://www.npmjs.com/package/botml" target="_blank">
+    <img src="https://img.shields.io/npm/dt/botml.svg?style=flat-square" alt="npm downloads" />
+  </a>
+  <a href="https://david-dm.org/codename-co/botml" target="_blank">
+    <img src="https://img.shields.io/david/codename-co/botml.svg?style=flat-square" alt="David" />
+  </a>
+  <a href="https://travis-ci.org/codename-co/botml" target="_blank">
+    <img src="https://img.shields.io/travis/codename-co/botml.svg?style=flat-square" alt="travis" />
+  </a>
+  <a href="http://standardjs.com/" target="_blank">
+    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square" alt="JavaScript Style Guide" />
+  </a>
+  <a href="https://tonicdev.com/npm/botml" target="_blank">
+    <img src="https://img.shields.io/badge/test-live-blue.svg?style=flat-square" alt="test" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img src="https://img.shields.io/npm/l/botml.svg?style=flat-square" alt="License" />
+  </a>
+</p>
+
+<br>
 
 [<abbr title="Bot Markup Language">Botml</abbr>](https://codename.co/botml/) is
 a declarative and powerful **markup language for designing modern chatbots**
