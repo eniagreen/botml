@@ -674,7 +674,4 @@ Feel free to dive in! [Open an issue](https://github.com/codename-co/botml/issue
 
 ## License
 
-Botml 2.x is Copyright All Rights Reserved.
-Prior Botml versions are under the MIT License.
-
-Refer to the [License][https://github.com/codename-co/botml/blob/master/LICENSE.txt] for details.
+Botml is MIT licensed.
