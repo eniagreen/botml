@@ -148,6 +148,8 @@ The most basic `.bot` file would be:
 < Hello human!
 ```
 
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAIoAAAAAAAAAABsiYBCI2dvskCsW_6JCzE_nW-tBfA2WSnjPZMRrrmaRu8nnBJn042F__80lMAA)
+
 ### Blocks
 
 #### Specification
@@ -203,6 +205,8 @@ Example:
 < Nice to meet you.
 ```
 
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAI_AAAAAAAAAABsj0BEICn20dZCh0WbuSTAXau7SBB6iW4AVbemNkmFJbMY-KeSdCb2FTu2MK_QYTfeKKF3B7fMzt59LTfy8s__2ZhgAA)
+
 #### Random replies
 
 Random replies in [dialogues](#dialogue) make a bot feel less rigid.
@@ -222,6 +226,8 @@ Example:
 < Hi there
 < Howdy?
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAIgAAAAAAAAAABfiIPCEjuxxv0hVrmkVI_FfN6EgMhy4GBa8Ct5ZT8-nlfk__hTTAA)
 
 #### List
 
@@ -288,10 +294,12 @@ Example:
 #  < Oh. I prefer oranges
 #  < Oh. I prefer lemons
 #  < Oh. I prefer grapefruits
-
-> I like [random_fruit]
-< Oh. I prefer [random_fruit].
+#
+#  > I like [random_fruit]
+#  < Oh. I prefer [random_fruit].
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAKqAAAAAAAAAABsqgBD0RHeckJzN9drYj1Bz8oOjFIIt6_2zWbQP2qZ-BIx0e1vOeshDa-ipXQgNJCFmdpRnFYuMGs_n1c7Pv5AH_xo2Z95xdOcJM-1chGNVzEz5Nu7tEhy-XojipTnnD8QLWmGq1gowSnIKuho_eQX_Gf_viHAAA)
 
 Lists can also be used in [prompts](#prompt).
 
@@ -325,6 +333,8 @@ Example:
 < What kind of pizza?
 ? [pizza_types]
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJ0AAAAAAAAAABsnIBD0RIZBSWtX3orynwMXTL9VBARlfLR9Ywp35T5_DuOmzGu5O5_2Sv4ozr0nRADxlSMU5u80Dkvl1DiT1B0WRYTXhmv1FVenXNysHLt-cGTuug8SWShG2GJ3cBplT__IM0AAA)
 
 #### Service
 
@@ -380,8 +390,10 @@ Example:
 
 ```
 > It will cost you #{price} USD
-< `1000 * $price`k USD is a lot!
+< `$price / 1000`k USD is a lot!
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJFAAAAAAAAAABskMBD4RFphvlx5b-tGgoSRMRAU-vqTQoC2KBAl2w5TTuDp3fVtcECJjuWlW4_lW0GsjUyPPq7k81Gr-urVoc9WvmMTf_96EAA)
 
 #### Variable
 
@@ -398,8 +410,10 @@ It *can* be used in `<` lines.
 < Nice to meet you, $name
 
 > I am #{age} years old
-< Seems that you have `age`
+< Seems that you are $age
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJpAAAAAAAAAABsmcBD4RF7i0YPXTp6tNRXvN4q653SJJr8Na3Rsl2LPAeGpRcwXyq94zigyHXZcW1ZMmskimR1-m0-pJXzXdCi15nBu3DZgKJarZ4puNdEhJivFiT4IU6wAR_MYXXw7rdb_NvSAA)
 
 The variable format is `${VARIABLE_NAME}` (with its numeric and alphanumeric
 equivalents). But for convenient of use, the format `$VARIABLE_NAME` can be used
@@ -422,6 +436,8 @@ A regular expression *must* be wrapped in `/` and *cannot* be mixed with
 < Cool bro.
 ```
 
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAI8AAAAAAAAAABsjoBEIClUAWBDpdTPmEq4qsZTkpPh7naqvtjwtdpy1iow43E29KT2HAO6O7CKef5TZnbarOwr__76_AA)
+
 In fact, the [XRegExp](http://xregexp.com/) library is used under the hood,
 giving you access to leading named captures, inline comments and mode modifiers.
 
@@ -437,13 +453,15 @@ Only one workflow *can* start with a `<` dialogue. Such a workflow will be
 activated and used by default when the user connects to the bot.
 
 ```
-~ grocery shopping
+# grocery shopping
 > I want to buy *{items}
 < How many $items?
 > #{count} $items
 > #{count}
 < There you go.
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJ0AAAAAAAAAABsnIBCMRIhLXFii7GDoPQfSvyI6ci47dFh--F8mvrrQPX8-PuPRfQ2zdx1RHtwM151KwJyj0RlcEW4Sf61u6Tt82RCeGi_IGYzgGZdMi53DGNNi00wjG-owPgS0X1B__I3tAA)
 
 #### Conditional branches
 
@@ -469,22 +487,24 @@ A checkpoint is a marker `~ CHECKPOINT_NAME` in the workflow, that makes returni
 
 ```
 ~ ask_howdy
-< Hello stranger. How are you?
+< Hello stranger.
 ~ checkpoint_name
-< howdy?
+< How are you?
 > meh
 < So you feel bad huh
 ~ [checkpoint_name]
 
 # Example of workflow working:
 
-# < Hello stranger. How are you?
-# < Howdy?
+# < Hello stranger.
+# < How are you?
 # > meh
 # < So you feel bad huh
-# < Howdy?
+# < How are you?
 # > ...
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJ4AAAAAAAAAABsnYBH4RHg3FloWZyyGrtkMa02BcUCzTYqkO3eR8AzaW0rR-pnBSyX43TpWlMLBhkEdycvv89P5PNaBqhNI8Hw-OP-1jT92t6q2SzAUcEFvFCnYZQjf-ZKLg5jLS7ZW2mJ-BT_6o4IAA)
 
 Both *checkpoints* and *lists* make working with conditional branches something really interesting:
 
@@ -500,9 +520,9 @@ Both *checkpoints* and *lists* make working with conditional branches something 
 - better than ever
 
 ~ ask_howdy
-< hello stranger. how are you?
+< hello stranger.
 ~ listen_howdy
-< howdy?
+< how are you?
 ? [mood]
 ---
   > meh
@@ -528,6 +548,8 @@ Both *checkpoints* and *lists* make working with conditional branches something 
 < Much better!
 ```
 
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAL4AQAAAAAAAABtAFqXin8NlDeNivCZHPxoZmz1gxKwZZiHYHnjbFcPtykeA4-4YQF0udX2gU3AOAfe_Ez6xDSVmEqT9OzUUqxZfDYs6_xw6A-ofRakUnTEPKSl3N2EyaqO7F87mtgW7UOZsjwUd6-sgE5fWUWLmcB0dt2JPBO89oXWh-2SHHkOej4koXYNEFTyAZuHX5R8wPWarKrl7nyhj34NPxGHLofh9IW25t4pjxzAGlo9xjFZvoZBB38MHJJWhA9ZuccCQO0c7B29aQe-pQmaJg7IwYwm5xTXaHJbIG-1_h0YtWaYGHYfuBraxIApr1snCYD1ibYKjgohNMNTIE8zrogdbOQJza1yvDUuxDx7NT6GgZdW4mQ2nT49i2Sy55GPAaQP9Gjixb6svHN2YnOHpBoN8I2OQqs1s_6dA9s)
+
 It is also possible to use the "not equal" sign `!` in *conditional branching*:
 
 ```
@@ -544,9 +566,9 @@ It is also possible to use the "not equal" sign `!` in *conditional branching*:
 - ok
 
 ~ ask_howdy
-< hello stranger. how are you?
+< hello stranger.
 ~ listen_howdy
-< howdy?
+< how are you?
 ? [mood]
 ---
   > ![mood]
@@ -559,6 +581,8 @@ It is also possible to use the "not equal" sign `!` in *conditional branching*:
 > [bad_mood]
 < Hmm... bye then...
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAAJ5AQAAAAAAAABtAEpMEOgO3skg8015b8VckAMXbdalZ5wJoxZ80z-cbVuxG6HgpW3_T4bXh0KkQ_41bKuMYvRj4gL6h5Pl-O2SnvAsptiG4qw66N0RzxnF1OqZmb-NTo3sjwnF4Hn5uenwxVqVQjWpOSofNSebj1VVVUiSt-iBuYA1z_N3q9QpFnvp51jKrNcn_83pD8CptKNNexdxFP7wLS_cwybYoIwECC2c6V8iK0zx5mGRgUYNJrGsoETQ5gJLeSiXcBv_LNjjXrgpe1OHuYhAMaKILU8aumkty_Zia2lAty3f-rV1wmoFkoHrk9P93kXV)
 
 *Conditional branching* also work well with scripts as long as a value is returned. If a script returns the value `true`, the corresponding branch will be activated. If all tests are `false` *conditional branching* will skip all branches and continue with the current workflow: 
 
@@ -575,6 +599,8 @@ It is also possible to use the "not equal" sign `!` in *conditional branching*:
 ---
 < Cool. We'll reach you over at $email
 ```
+
+[▶️ Try this script on bubl.es](https://bubl.es/#XQAAAALuAAAAAAAAAABsuwBH4Qmh0szgRnW9MzztSBto_voZD0pQVqDwXgBxNpbrJXMpRvhOKCM1DYc9Oz26vNE2X6Zq2SQVKg1QEbLCyFEnOVI1zZWIEADm32aDDazI2BcC2kjJibDwzgaIzjZsKUYjr9IYXp4V_3NbaV2egh2Vok2QauWbs1XotwLllwo9-fJ_oPGCK6fh7wBhSyqWpYregsYHE_vdEbOFztp9VFzcvm-A2QzeLJmuoQ6jaP_WSJgA)
 
 #### Trigger
 
