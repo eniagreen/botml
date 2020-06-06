@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -3074,7 +3074,7 @@
     },
     "debug-log": {
       "version": "1.0.1",
-      "resolved": "https://registry.npmjs.org/debug-log/-/debug-log-1.0.1.tgz",
+      "resolved": "http://registry.npmjs.org/debug-log/-/debug-log-1.0.1.tgz",
       "integrity": "sha1-IwdjLUwEOCuN+KMvcLiVBG1SdF8=",
       "dev": true
     },

@@ -1,6 +1,6 @@
 {
   "name": "botml",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Botml is a powerful markup language for designing modern chatbots.",
   "keywords": [
     "bot",
@@ -57,7 +57,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "babel-eslint": "^10.1.0",
